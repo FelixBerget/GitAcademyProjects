@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LeilighetProsjekt</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="theText">Du er utenfor en leilighet
+            <button onclick="startTour()">Gå inn i leiligheten</button>
+        </div>
+    </body>
+    <script>
+        function startTour(){
+            document.getElementById("theText").innerHTML=`
+            <div>Du er i gangen</div>
+            <button onclick="goToKitchen()">Gå til kjøkkenet</button>
+            <button onclick="goToLiving()">Gå til stuen</button>
+            <button onclick="goToBath()">Gå til badet</button>
+            `;
+        }
+        function goToBath(){
+            document.getElementById("theText").innerHTML=`
+            <div>Du er på badet</div>
+            <button onclick="startTour()">Gå tilbake</button>`;
+        }
+        function goToLiving(){
+            document.getElementById("theText").innerHTML=`
+            <div>Du er i stuen</div>
+            <button onclick="startTour()">Gå tilbake</button>
+            <button onclick="goToKitchen()">Gå til kjøkkenet</button>`;
+
+        }
+        function goToKitchen(){
+            document.getElementById("theText").innerHTML=`
+            <div>Du er i kjøkkenet</div>
+            <button onclick="startTour()">Gå tilbake</button>
+            <button onclick="goToLiving()">Gå til stuen</button>    `;
+        }
+    </script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>epostPage</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <script>
+            var firstName = ""
+            var email = ""
+
+            showPage()
+            function showPage(){
+                document.getElementById("app").innerHTML=`
+                <form id="inputForm">
+                    <label for="firstname">Navn her</label>
+                    <input type="text" id="nameinput" name="firstname"><br>
+                    <label for="email">Email her</label>
+                    <input type="text" id="emailinput" name="email"><br>
+                </form><br>
+                <button id="register" onclick="reg()">Register</button>
+                `;
+            }
+            function reg(){
+                firstName=nameinput.value
+                email = emailinput.value
+                document.getElementById("app").innerHTML=`
+                <div id="fname">${firstName}</div><br>
+                <div id="em">${email}</div><br>
+                <button id="rediger" onclick="showPage()">Rediger</button>
+                `;
+            }
+        </script>
+    </body>
+</html>

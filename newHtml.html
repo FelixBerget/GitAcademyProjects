@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            const ferrari = {type:"Ferrari",model:"300",color:"red"};
+            const bugatti ={type:"Bugatti",model:"50",color:"gold"};
+            const toyota ={type:"Toyota",model:"Prius",color:"silver"};
+
+            cars = [ferrari,bugatti,toyota];
+            for(let i=0;i<cars.length;i++){
+                document.getElementById("app").innerHTML+=`<div id=${i}>${cars[i].type} model ${cars[i].model}</div>`;
+                document.getElementById(`${i}`).style=`background-color: ${cars[i].color};`
+            }
+        </script>
+    </body>
+</html>

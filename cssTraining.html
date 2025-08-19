@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trainig CSS</title>
+        <meta charset="UTF-8">
+        <style>
+            body{
+                padding: 0;
+                margin: 0;
+            }
+            #theMain{
+                display: grid;
+                height: 100vh;
+                grid-template-areas: 'header header header header header header'
+                                     'menu menu menu mainContent mainContent mainContent'
+                                     'footer footer footer footer footer footer';
+            }
+            div.header{
+                grid-area: header;
+            }
+            div.menu{
+                grid-area: menu;
+            }
+            div.mainContent{
+                grid-area: mainContent;
+            }
+            div.footer{
+                grid-area: footer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="theMain">
+            <div class="header" style="background-color: lightgray">header</div>
+            <div class="menu" style="background-color: lightblue">meny</div>
+            <div class="mainContent" style="background-color: lightgreen">hovedinnhold</div>
+            <div class="footer" style="background-color: lightpink">footer</div>
+        </div>
+    </body>
+</html>

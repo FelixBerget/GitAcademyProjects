@@ -1,0 +1,61 @@
+<html>
+<head>
+    <style>
+        div.trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            background-color: red;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="changeLight()" class="trafficLight">
+        <div class="light" style="background-color: red;"></div>
+        <div class="light" style="background-color: gray;"></div>
+        <div class="light" style="background-color: gray;"></div>
+    </div>
+</body>
+<script>
+    let counter=0
+    function changeLight(){
+        counter++
+        if(counter==1){
+            let trafficLight = document.getElementsByClassName("light");
+            trafficLight[0].style="background-color: red;"
+            trafficLight[1].style="background-color: gray;"
+            trafficLight[2].style="background-color: gray;"
+        }
+        if(counter==2){
+            let trafficLight = document.getElementsByClassName("light");
+            trafficLight[0].style="background-color: red;"
+            trafficLight[1].style="background-color: yellow;"
+            trafficLight[2].style="background-color: gray;"
+        }
+        if(counter==3){
+            let trafficLight = document.getElementsByClassName("light");
+            trafficLight[0].style="background-color: gray;"
+            trafficLight[1].style="background-color: gray;"
+            trafficLight[2].style="background-color: green;"
+        }
+        if(counter==4){
+            let trafficLight = document.getElementsByClassName("light");
+            trafficLight[0].style="background-color: gray;"
+            trafficLight[1].style="background-color: yellow;"
+            trafficLight[2].style="background-color: gray;"
+            counter = 0
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Felix sitt business card</title>
+        <meta charset="UTF-8">
+        <style>
+            #app{
+                background-color: aliceblue;
+                padding: 40px;
+                width: 60%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 40px;
+                color:darkgreen;
+            }
+            #H{
+                font-size: 40px;
+            }
+            #P{
+                width: 150px;
+                height: 100px;
+            }
+            #N{
+                font-size: 20px;
+            }
+            #T{
+                font-size: 17px;
+            }
+            #I{
+                font-size: 12px;
+            }
+            #S{
+                font-size: 12px;
+                background-color: aquamarine;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+    <script>
+
+        var counter = 1;
+        let busCard;
+        function makeCard(){
+            busCard = document.getElementById("app")
+            busCard.innerHTML=`
+            <div id="H">Business Card</div>
+            <div id="N">Felix Berget</div>
+            <div id="T">Programmer</div>
+            <div id="I">Gaming - Football - Music</div>
+            <div id="S" onclick="change()">Click here for style change</dib>`;
+
+        }
+        function change(){
+            counter++
+            if(counter%2==0){
+                busCard.style.color="white";
+                busCard.style.backgroundColor="darkgrey";
+            }
+            else{
+                busCard.style.color="darkgreen";
+                busCard.style.backgroundColor="aliceblue"
+            }
+        }
+        makeCard()
+
+    </script>
+    </body>
+</html>

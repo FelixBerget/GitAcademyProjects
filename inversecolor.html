@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Inversing</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1 id="subject">This is perfectly inverse</h1>
+        <div id="app"></div>
+    </body>
+    <script>
+        let counter = 0
+        let t = document.getElementById("subject")
+        let currentColor = { red: 0, green: 0, blue: 0}
+        function inverseColor(color){
+            newColor = { red:0, green:0, blue:0};
+            newColor.red=255-color.red;
+            newColor.green=255-color.red;
+            newColor.blue=255-color.blue;
+            return newColor;
+        }
+        function makeNewDiv(color, text){
+            counter++
+            document.getElementById("app").innerHTML+=`
+            <div id=${counter}>${text}</div>`
+            let C = inverseColor(currentColor)
+            document.getElementById(`${counter}`).setAttribute("style",`background-color: rgb(${currentColor.red},${currentColor.green},${currentColor.blue}); color: rgb(${C.red},${C.green},${C.blue})`)
+        }
+        makeNewDiv(currentColor = { red: 30, green: 50, blue: 65},"hello")
+        makeNewDiv(currentColor = { red: 0, green: 0, blue: 0},"is there")
+        makeNewDiv(currentColor = { red: 80, green: 250, blue: 65},"anybody in there")
+        let theC = inverseColor(currentColor)
+        t.setAttribute("style",`background-color: rgb(${currentColor.red},${currentColor.green},${currentColor.blue}); color: rgb(${theC.red},${theC.green},${theC.blue})`)
+        console.log(theC.red + "and" + currentColor.red)
+    </script>
+</html>

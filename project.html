@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PAGE</title>
+        <meta charset="UTF-8">
+        <script>
+        function show1() {
+            document.getElementById('dinId').innerHTML = `
+                <h1>1</h1>
+                <button onclick="show2()">Øke med én</button>
+                <button onclick="show2()">Doble</button>
+                 `;
+        }
+        function show2() {
+            document.getElementById('dinId').innerHTML = `
+                <h1>2</h1>
+                <button onclick="show3()">Øke med en</button>
+                <button onclick="show4()">Doble</button>
+                `;
+        }
+        function show3(){
+            document.getElementById('dinId').innerHTML = `
+                <h1>3</h1>
+                <button onclick="show4()">Øke med en</button>
+                <button onclick="show6()">Doble</button>
+                `;
+        }
+        function show4(){
+            document.getElementById('dinId').innerHTML = `
+                <h1>4</h1>
+                <button onclick="show5()">Øke med en</button>
+                <button onclick="show7()">Doble</button>
+                `;
+        }
+        function show5(){
+            document.getElementById('dinId').innerHTML= `
+                <h1>5</h1>
+                <button onclick="show6()">Øke med en</button>
+                <button onclick="show10()">Doble</button>
+                `;
+        }
+        function show6(){
+            document.getElementById('dinId').innerHTML = `
+                <h1>6</h1>
+                <button onclick="show7()">Øke med en</button>
+                <button onclick="show12()">doble</button>`;
+        }
+        function show7(){ 
+            document.getElementById('dinId').innerHTML = `
+                <h1>7</h1>
+                <button onclick="show8()">Øke med en</button>`;
+        }
+        function show8(){ 
+            document.getElementById('dinId').innerHTML = `
+                <h1>8</h1>
+                <button onclick="show9()">Øke med en</button>`;
+        }
+        function show9(){ 
+            document.getElementById('dinId').innerHTML = `
+                <h1>9</h1>
+                <button onclick="show10()">Øke med en</button>`;
+        }
+        function show10(){ 
+            document.getElementById('dinId').innerHTML = `
+                <h1>10</h1>
+                <button onclick="show11()">Øke med en</button>`;
+        }
+        function show11(){ 
+            document.getElementById('dinId').innerHTML = `
+                <h1>11</h1>
+                <button onclick="show12()">Øke med en</button>`
+        }
+        function show12(){ 
+            document.getElementById('dinId').innerHTML = `
+                <h1>12</h1>
+                <button onclick="show1()">RESET</button>`
+}
+        </script>
+    </head>
+    <body>
+        <h1>HEI JEG ER FELIX</h1>
+        <h2>Jeg liker å partye</h2>
+        <ol>
+            <li><ul>
+                <li>Hello</li>
+                <li>John</li>
+            </ul></li>
+            <li>I am</li>
+            <li>Iron Man</li>
+        </ol>
+        <p>Hello i am from Italy</p>
+        <p>I like to fly private airplanes</p>
+        <h2 id="mcdonalds">McDonalds</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </form>
+        <button onclick="document.getElementById('mcdonalds').innerHTML=document.getElementById('name').value">Put in Name</button>
+        <br>
+        <br>
+        <div id="dinId">Hei</div>
+        <button onclick="show1()    ">KLIKK HER</button>
+
+
+        <form>
+            <input type="checkbox" id="f1" name="f1" value="burger">
+            <label for="f1">I want the Burger please</label><br>
+            <input type="checkbox" id="f2" name="f2" value="pizza">
+            <label for="f2">I want the Pizza please</label><br>
+            <input type="checkbox" id="f3" name="f3" value="sushi">
+            <label for="f3">I want the Sushi please</label><br>
+            <input type="submit" value="test">
+        </form>
+        <br>
+        <br>
+        <form>
+            <input type="radio" id="rock" name="favourite_genre" value="Rock">
+            <label for="rock">Rock</label><br>
+            <input type="radio" id="pop" name="favourite_genre" value="Pop">
+            <label for="pop">Pop</label><br>
+            <input type="radio" id="rap" name="favourite_genre" value="Rap">
+            <label for="rap">Rap</label><br>
+            <input type="submit" value="SUTBMIT IT">
+        </form>
+        <br>
+        <br>
+        <img src="WIN_20250811_13_34_36_Pro.jpg">
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>For Fun</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            var app = document.getElementById("app")
+
+            startApp()
+            function startApp(){
+                
+                app.innerHTML= `
+                <div id="nr1">Hello</div>
+                <div id="nr2">I am here</div>
+                background color<input type="text" id="inp1"></input><br>
+                color<input type="text" id="inp2"></input><br>
+                fontsize<input type="number" id="inp3"></input>
+                <br>
+                <button onclick="changeEverything()">change everything</button>
+                <br>
+                <button onclick="changeBackgroundColor()">change background</button>
+                <br>
+                <button onclick="changeTextColor()">change textcolor</button>
+                <br>
+                <button onclick="changeFontSize()">change fontsize</button>`
+                ;
+            }
+            
+            var nr1 = document.getElementById("nr1")
+            var nr2 = document.getElementById("nr2")
+            var inp1 = document.getElementById("inp1")
+            var inp2 = document.getElementById("inp2")
+            var inp3 = document.getElementById("inp3")
+            function changeEverything(){
+                    nr1.setAttribute("style",`background-color: ${inp1.value}; color:${inp2.value};font-size:${inp3.value}px`)
+                    nr2.setAttribute("style",`background-color: ${inp1.value}; color:${inp2.value};font-size:${inp3.value}px`)
+            }
+            function changeBackgroundColor(){
+                    nr1.setAttribute("style",`background-color: ${inp1.value}`)
+                    nr2.setAttribute("style",`background-color: ${inp1.value}`)
+            }
+            function changeTextColor(){
+                    nr1.setAttribute("style",`color: ${inp2.value}`)
+                    nr2.setAttribute("style",`color: ${inp2.value}`)
+
+            }
+            function changeFontSize(){
+                    nr1.setAttribute("style",`font-size: ${inp3.value}px`)
+                    nr2.setAttribute("style",`font-size: ${inp3.value}px`)
+            }
+        </script>
+    </body>
+</html>

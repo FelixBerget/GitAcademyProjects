@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        var trueBackGroundColor = "red";
+        var trueFrontColor = "red";
+        function addColorDiv(){
+            document.getElementById('app').innerHTML+=`
+            <div style="background-color:${trueBackGroundColor};color:${trueFrontColor}">ANOTHER SECTION</div>`
+            document.getElementById("frontcolor").value=trueFrontColor;
+            document.getElementById("backcolor").value=trueBackGroundColor;
+        }
+        setUpView();
+        //view
+        function setUpView(){
+            document.getElementById('app').innerHTML =`
+                <h1>Add more colors</h1>
+                <br>
+                <label for="backcolor">Choose background color</label><br>
+                <select name="bc" id="backcolor" onchange="remember()">
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                </select>
+                <label for="frontcolor">Choose text color</label>
+                <br>
+                <select name="fc" id="frontcolor" onchange="remember()">
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                </select>
+                <br>
+                <button onclick="addColorDiv()">add new colored div</button>`;
+        }
+        function remember(){
+            trueBackGroundColor=document.getElementById('backcolor').value;
+            trueFrontColor=document.getElementById('frontcolor').value;
+        }
+
+    </script>
+
+</body>
+</html>
