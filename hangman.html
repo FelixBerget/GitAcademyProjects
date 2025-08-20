@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hangman Game</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+
+            var app = document.getElementById("app")
+            var currentletters = "_____"
+            var hasWon = ""
+            
+            openView()
+            function openView(){
+                app.innerHTML=`
+                <div id="h">What is the word</div>
+                <input type="text" id="inp"></input>
+                <button onclick="evaluateHangman('hello',currentletters,inp.value,0)">see if hangman is true</button>
+                <div id="current"></div>
+                <div id="hasWon"></div>`;
+            }
+
+            function evaluateHangman(secretText, currentText, guessedLetter, previousindex){
+                current = document.getElementById("current")
+                hasWon = document.getElementById("hasWon")
+                let theRest = ""
+                for(let i = previousindex;i<secretText.length;i++){
+                    theRest+="_"
+                }
+                current.innerHTML+= theRest
+                console.log(secretText)
+                console.log(currentText)
+                console.log(guessedLetter)
+                const index = secretText.indexOf(guessedLetter);
+                if(index == -1) return currentText;
+                const currentTextBeforeGuessedLetter = currentText.substring(0, index);     
+                const currentTextAfterGuessedLetter = currentText.substring(index + 1);
+                const secretTextAfterGuessedLetter = secretText.substring(index + 1);
+                console.log(currentTextBeforeGuessedLetter)
+                console.log(currentTextAfterGuessedLetter)
+                console.log(secretTextAfterGuessedLetter)
+                current.innerHTML += currentTextBeforeGuessedLetter + guessedLetter;
+                if(currentTextAfterGuessedLetter==secretTextAfterGuessedLetter){
+                    hasWon.innerHTML="WON";
+                }
+                else{
+                    hasWon.innerHTML="not there yet";
+                };
+                return currentTextBeforeGuessedLetter + guessedLetter 
+                    + evaluateHangman(secretTextAfterGuessedLetter, currentTextAfterGuessedLetter, guessedLetter,index);
+            }
+        </script>
+    </body>
+</html>
