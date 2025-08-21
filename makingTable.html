@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is the title</title>
+        <meta charset="UTF-8">
+        <style>
+            #myTable{
+                border: 3px solid darkred;
+            }
+            td{
+                border: 2px solid darkblue
+            }
+        </style>
+    </head>
+    <body>
+        <table id="myTable">
+
+        </table>
+        <script>
+
+            addTable("td","Hello","Is","There","Anyone")
+            addTable("td","We","Are","The","World")
+            addTable("td","Hey","Joe","I","Am")
+
+            myTable = document.getElementById("myTable")
+            function addTable(tagg, cont1, cont2, cont3, cont4){
+                    myTable.innerHTML+=`
+                    <tr>
+                        <${tagg}>${cont1}</${tagg}>
+                        <${tagg}>${cont2}</${tagg}>
+                        <${tagg}>${cont3}</${tagg}>
+                        <${tagg}>${cont4}</${tagg}>
+                    </tr>`
+            }
+        </script>
+    </body>
+</html>
