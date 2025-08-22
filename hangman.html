@@ -30,26 +30,22 @@
                     theRest+="_"
                 }
                 current.innerHTML+= theRest
-                console.log(secretText)
-                console.log(currentText)
-                console.log(guessedLetter)
                 const index = secretText.indexOf(guessedLetter);
                 if(index == -1) return currentText;
                 const currentTextBeforeGuessedLetter = currentText.substring(0, index);     
                 const currentTextAfterGuessedLetter = currentText.substring(index + 1);
                 const secretTextAfterGuessedLetter = secretText.substring(index + 1);
-                console.log(currentTextBeforeGuessedLetter)
-                console.log(currentTextAfterGuessedLetter)
-                console.log(secretTextAfterGuessedLetter)
-                current.innerHTML += currentTextBeforeGuessedLetter + guessedLetter;
-                if(currentTextAfterGuessedLetter==secretTextAfterGuessedLetter){
+                let result = currentTextBeforeGuessedLetter + guessedLetter 
+                    + evaluateHangman(secretTextAfterGuessedLetter, currentTextAfterGuessedLetter, guessedLetter,index)
+                current.innerHTML = result
+                console.log(result)
+                if(!result.includes("_")){
                     hasWon.innerHTML="WON";
                 }
                 else{
                     hasWon.innerHTML="not there yet";
                 };
-                return currentTextBeforeGuessedLetter + guessedLetter 
-                    + evaluateHangman(secretTextAfterGuessedLetter, currentTextAfterGuessedLetter, guessedLetter,index);
+                return result;
             }
         </script>
     </body>

@@ -18,18 +18,17 @@
         </table>
         <script>
 
-            addTable("td","Hello","Is","There","Anyone")
-            addTable("td","We","Are","The","World")
-            addTable("td","Hey","Joe","I","Am")
+            addTable("td","Whats","Up","Homie")
+            addTable("td","I","Am","From")
+            addTable("td","Chicago","In","Illinois")
 
             myTable = document.getElementById("myTable")
-            function addTable(tagg, cont1, cont2, cont3, cont4){
+            function addTable(tagg, cont1, cont2, cont3){
                     myTable.innerHTML+=`
                     <tr>
                         <${tagg}>${cont1}</${tagg}>
                         <${tagg}>${cont2}</${tagg}>
                         <${tagg}>${cont3}</${tagg}>
-                        <${tagg}>${cont4}</${tagg}>
                     </tr>`
             }
         </script>

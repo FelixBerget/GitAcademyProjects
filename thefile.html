@@ -12,36 +12,36 @@
     <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
     <script src="lib.js"></script>
     <script>
-        QUnit.test("fix - 'terje'", function (assert) {
-            const actual = fixText('terje');
-            const expected = 'Terje';
+        QUnit.test("fix - 'joe'", function (assert) {
+            const actual = fixText('joe');
+            const expected = 'Joe';
             assert.equal(actual, expected);
         });
 
-        QUnit.test("fix - 'terje '", function (assert) {
-            const actual = fixText('terje ');
-            const expected = 'Terje';
+        QUnit.test("fix - 'joe '", function (assert) {
+            const actual = fixText('joe ');
+            const expected = 'Joe';
             assert.equal(actual, expected);
         });
 
-        QUnit.test("fix - ' terje'", function (assert) {
-            const actual = fixText(' terje');
-            const expected = 'Terje';
+        QUnit.test("fix - ' joe'", function (assert) {
+            const actual = fixText(' joe');
+            const expected = 'Joe';
             assert.equal(actual, expected);
         });
 
-        QUnit.test("fix - ' terje '", function (assert) {
-            const actual = fixText(' terje ');
-            const expected = 'Terje';
+        QUnit.test("fix - ' joe '", function (assert) {
+            const actual = fixText(' joe ');
+            const expected = 'Joe';
             assert.equal(actual, expected);
         });
-        QUnit.test("fix - 'felix@gmail.com'",function(assert){
-            const actual = emailFunc('felix@gmail.com');
+        QUnit.test("fix - 'felix@email.com'",function(assert){
+            const actual = emailFunc('felix@email.com');
             const expected = true;
             assert.equal(actual,expected)
         })
-        QUnit.test("fix - 'felix@gmail.com'",function(assert){
-            const actual = emailFunc2('felix@gmail.com');
+        QUnit.test("fix - 'felix@email.com'",function(assert){
+            const actual = emailFunc2('felix@email.com');
             const expected = true;
             assert.equal(actual,expected)
         })

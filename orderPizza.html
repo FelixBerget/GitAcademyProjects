@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pizza Order</title>
+        <meta charset="UTF-8">
+        <style>
+            h1{
+                color: yellow;
+            }
+            h3{
+                border: 2px solid yellow;
+                width: 50%;
+                background-color: brown;
+                color: yellow;
+            }
+            select{
+                color: orange;
+                background-color: darkred;
+            }
+            h5{
+                width: 75%;
+                color: yellow;
+                background-color: brown;
+                border: 3px dotted chartreuse;
+            }
+            body{
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+
+        <script>
+
+            let app = document.getElementById("app")
+
+            startView()
+            function startView(){
+                app.innerHTML=`
+                <h1>Here you order the Pizza</h1>
+                <br>
+                <h3>Bread choice</h3>
+                <select name="bread" id="bread" onChange="changeText()">
+                    <option value="normal">Normal</option>
+                    <option value="cheeseCrust">Cheese Crust</option>
+                    <option value="garlicCrust">Garlic Crust</option>
+                </select>
+                <br>
+                <h3>Cheese Choice</h3>
+                <select name="cheese" id="cheese" onChange="changeText()">
+                    <option value="mozzarela">Mozzarela</option>
+                    <option value="parmesan">Parmesan</option>
+                    <option value="norwegianCheese">Norwegian Cheese</option>
+                </select>
+                <br>
+                <h3>First Topping</h3>
+                <select name="topping1" id="topping1" onChange="changeText()">
+                    <option value="ham">Ham</option>
+                    <option value="bacon">Bacon</option>
+                    <option value="mincedMeat">Minced Meat</option>
+                </select>
+                <br>
+                <h3>Second Topping</h3>
+                <select name="topping2" id="topping2" onChange="changeText()">
+                    <option value="paprika">Paprika</option>
+                    <option value="tomato">Tomato</option>
+                    <option value="">Nothing</option>
+                </select>
+                <h5 id="order"></h5>`;
+            }
+            function changeText(){
+                let order = document.getElementById("order")
+                let price = 230
+                if(topping2.value==""){
+                    price -= 20
+                }else{
+                    price = 230
+                }
+                order.innerHTML = `The Dough is ${bread.value}, and the Cheese is ${cheese.value}. For toppings we have ${topping1.value} ${topping2.value} and the price is ${price}`
+            }
+            function getCustomerService(name, complaint){
+                if(name==""){
+                    name="Anonymous"
+                }
+                else{
+                    complaint+=" reach out to us on pizza@mail.com"
+                }
+                return `Hello ${name} we understand your complaint about the problem of ${complaint}` 
+            }
+        </script>
+    </body>
+</html>
