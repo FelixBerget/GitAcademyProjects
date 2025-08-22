@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RPG game</title>
+        <meta charset="UTF-8">
+
+        <style>
+            button{
+                width: 32%;
+                color: brown;
+            }
+            #headliner{
+                text-align: center;
+                font-size: 30px;
+                color: coral;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="game"></div>
+        
+        <script>
+            let game = document.getElementById("game")
+            startGame()
+
+            function startGame(){
+                game.innerHTML=`
+                <p id="headliner">Welcome to Johns House</p>
+                <button onclick="house()">Go into the House</button>
+                <button onclick="garage()">Go into the Garage</button>
+                <button onclick="roof()">Climb the roof</button>
+                `
+            }
+            function house(){
+                game.innerHTML=`
+                <p id="headliner">You went into the house</p>
+                <button onclick="startGame()">Go back!</p>
+                `
+            }
+            function garage(){
+                game.innerHTML=`
+                <p id="headliner">You went into the garage</p>
+                <button onclick="startGame()">Go back!</p>
+                `
+            }
+            function roof(){
+                game.innerHTML=`
+                <p id="headliner">You went on top of the roof</p>
+                <button onclick="startGame()">Go back!</p>
+                `
+            }
+        </script>
+    </body>
+</html>
