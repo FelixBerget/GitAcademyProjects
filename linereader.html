@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>linereader</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+
+        <script>
+            let app = document.getElementById("app");
+            showIt()
+            function showIt(){
+                app.innerHTML=`
+                <h1>Put in the sentence</h1>
+                <input type="text" id="inp"></input>
+                <button onclick="check()">CLICK HERE</button>
+                `
+            }
+            function check(){
+                let longestWord = 0;
+                let previousLongesWord = 0;
+                let numberofWords = 0;
+                let inp = document.getElementById("inp")
+                let inpValue = inp.value;
+                if(inpValue!=""){
+                    numberofWords++
+                }
+                for(let i=0;i<inpValue.length;i++){
+                    if(previousLongesWord>longestWord){
+                        longestWord++
+                    }
+                    else{
+                        longestWord++
+                        previousLongesWord++
+                    }
+                    if(inpValue.charAt(i)==" "){
+                        numberofWords++
+                        longestWord=0
+                        previousLongesWord--
+
+                    }
+                }
+                app.innerHTML+=`
+                <p>It contains ${numberofWords} words and the longest word is ${previousLongesWord} letters long</p>`
+            }
+
+        </script>
+    </body>
+</html>

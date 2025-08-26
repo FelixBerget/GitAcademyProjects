@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How many As are there in the text</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+            app.innerHTML=`
+            <h1>Check how many As there are in this text</h1>
+            <input type="text" id="inp"></input>
+            <button id="b" onclick="check()">Click for check</button>`
+
+            function check(){
+                let inp = document.getElementById("inp")
+                let howmanyA = 0
+                let inpString = inp.value
+                for(let i=0;i<inpString.length;i++){
+                    if(inpString.charAt(i)=="a" || inpString.charAt(i)=="A"){
+                        howmanyA++
+                    }
+                }
+                app.innerHTML+=`
+                <div>There are ${howmanyA} A in this text</div>`
+            }
+        </script>
+    </body>
+</html>

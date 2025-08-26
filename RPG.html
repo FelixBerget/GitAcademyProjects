@@ -14,12 +14,21 @@
                 font-size: 30px;
                 color: coral;
             }
+            .talking{
+                text-align: center;
+                font-size: 18px;
+                color: darkorange;
+            }
         </style>
     </head>
     <body>
         <div id="game"></div>
         
         <script>
+            let hasFork = false;
+            let hasPotion = false;
+            let savedMan = false;
+            let savedGnome = false;
             let game = document.getElementById("game")
             startGame()
 
@@ -29,25 +38,105 @@
                 <button onclick="house()">Go into the House</button>
                 <button onclick="garage()">Go into the Garage</button>
                 <button onclick="roof()">Climb the roof</button>
-                `
+                `;
+                if(savedMan & savedGnome){
+                    game.innerHTML=`
+                    <p id="headliner">You helped the house</p>`
+                }
             }
             function house(){
                 game.innerHTML=`
                 <p id="headliner">You went into the house</p>
-                <button onclick="startGame()">Go back!</p>
-                `
+                <button onclick="startGame()">Go back!</</button>
+                <button onclick="kitchen()">Go to the Kitchen</button>
+                <button onclick="garage()">Go to the Garage</button>
+                `;
             }
             function garage(){
                 game.innerHTML=`
                 <p id="headliner">You went into the garage</p>
-                <button onclick="startGame()">Go back!</p>
-                `
+                <button onclick="startGame()">Go back!</button>
+                <p class="talking">There is a injured man here</p>
+                <button onclick="givePotion()">Give him the potion</button>
+                `;
+                if(savedMan){
+                    givePotion()
+                }
+            }
+            function givePotion(){
+                if(hasPotion==false){
+                    game.innerHTML+=`
+                    <p class="talking">You have no potion</p>`
+                }
+                else{
+                game.innerHTML+=`
+                    <p class="talking">Thanks for the potion</p>`
+                    savedMan=true;
+                }
             }
             function roof(){
                 game.innerHTML=`
                 <p id="headliner">You went on top of the roof</p>
-                <button onclick="startGame()">Go back!</p>
-                `
+                <button onclick="startGame()">Go back!</button>
+                <p class="talking">There is a starving gnome here with a broken fork for his food</p>
+                <button onclick="saveGnome()">Give the fork</button>
+                `;
+                if(savedGnome){
+                    saveGnome()
+                }
+            }
+            function kitchen(){
+                game.innerHTML=`
+                <p id="headliner">You are in the Kitchen</p>
+                <button onclick="house()">Go back</button>
+                <button onclick="getFork()">Pick up Fork</button>
+                <button onclick="basement()">Down to the Basement</button>`;
+                if(hasFork){
+                    getFork()
+                }
+            }
+            function basement(){
+                game.innerHTML=`
+                <p id="headliner">You are in the Basement</p>
+                <img src="../Images/Bro.jpg">
+                <button onclick="kitchen()">Go back</button>
+                <button onclick="talkToBro1()">Talk to Bro</button>`;
+                if(hasPotion){
+                    talkToBro1()
+                    talkToBro2()
+                    getPotion()
+                }
+            }
+            function talkToBro1(){
+                game.innerHTML+=`
+                <p class="talking">Whats up its Bro</p>
+                <button onclick="talkToBro2()">Keep talkin to Bro</button>`;
+            }
+            function talkToBro2(){
+                game.innerHTML+=`
+                <p class="talking">Do you want a potion</p>
+                <button onclick="getPotion()">Get the potion</button> `;
+            }
+            function getPotion(){
+                hasPotion = true;
+                game.innerHTML+=`
+                <p class="talking">(You have aquired the potion!)</p>`
+            }
+            function getFork(){
+                game.innerHTML+=`
+                <p class="talking">Aquired fork</p>`
+                hasFork = true;
+            }
+            function saveGnome(){
+                if(hasFork){
+                    savedGnome = true;
+                    game.innerHTML+=`
+                    <p class="talking">Thanks for helping me</p>`
+                }
+                else{
+                    game.innerHTML+=`
+                    <p class="talking">Do not have a fork</p>`
+                }
             }
         </script>
     </body>

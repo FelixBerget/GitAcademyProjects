@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testing if it works with divs</title>
+        <meta charset="UTF-8">
+        <style>
+            #app{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            .part{
+                color: red;
+                background-color: burlywood;
+                border: solid lightskyblue;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Game</h1>
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+
+            start()
+            function start(){
+                app.innerHTML=`
+                
+                `;
+
+                for(let i=0;i<16;i++){
+                    app.innerHTML+=`
+                    <div class="part" onclick="reveal(this)">1</div>`
+                }
+            }
+            function reveal (div){
+                div.innerHTML=`I am here`
+            }
+        </script>
+    </body>
+</html>
