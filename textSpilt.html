@@ -13,9 +13,25 @@
 
             let app = document.getElementById("app")
 
+            let tx = "hello,guys,i,am,from,italy";
+            let splitTx
+            start()
+            spiltText()
             function start(){
                 app.innerHTML=`
-                <div>Lets try it out</div>`
+                <div>Lets try it out</div>
+                <div id="originalText"></div>
+                <div id="endtext"></div>`
+            }
+            document.getElementById("originalText").innerHTML=`${tx}`
+
+            function spiltText(){
+                let endtext = document.getElementById("endtext")
+                splitTx = tx.split(",")
+                console.log(splitTx)
+                for(let i=0;i<splitTx.length;i++){
+                    endtext.innerHTML+=" "+ splitTx[i]
+                }
             }
         </script>
     </body>
