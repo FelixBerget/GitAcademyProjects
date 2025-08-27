@@ -4,10 +4,10 @@
         <title>Title</title>
         <meta charset="UTF-8">
         <style>
-            #testingdiv{
+            #app{
                 text-align: center;
                 display: grid;
-                grid-template-columns: 200px;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
                 grid-template-rows: 200px;
             }
         </style>
@@ -21,7 +21,9 @@
             function startApp(){
                 app.innerHTML=`
                 <h1>Hei</h1>
-                <div id="testingdiv">There it is</div>`
+                <div class="testingdiv">There it is</div>
+                <div class="testingdiv">Checking if this works</div>
+                <div class="testingdiv">Guys</div>`
             }
         </script>
     </body>
