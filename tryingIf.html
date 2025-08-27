@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trying IF</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+
+            makeApp()
+            function makeApp(){
+                app.innerHTML=`
+                <h1>Hei</h1>`
+            }
+            console.log(tryIfNum(2))
+            console.log(tryIfNum("hello"))
+            console.log(tryIfString("hello"))
+            console.log(tryIfArray(["yo","guys"]))
+            console.log(tryIfArray("yo"))
+            function tryIfNum(numb){
+                if(numb/2){
+                    return "is number" 
+                }
+                else{
+                    return "is not number"
+                }
+            }
+            function tryIfString(st){
+                if(st.substring(1)){
+                    return "is string"
+                }
+                else{
+                    return "not a string"
+                }
+            }
+            function tryIfArray(ar){
+                if(ar.push("hello")){
+                    return "is array"
+                }
+                else{
+                    return "is not array"
+                }
+            }
+        </script>
+    </body>
+</html>
