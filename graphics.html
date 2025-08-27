@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <meta charset="UTF-8">
+        <style>
+            #testingdiv{
+                text-align: center;
+                display: grid;
+                grid-template-columns: 200px;
+                grid-template-rows: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            let app = document.getElementById("app")
+            
+            startApp()
+            function startApp(){
+                app.innerHTML=`
+                <h1>Hei</h1>
+                <div id="testingdiv">There it is</div>`
+            }
+        </script>
+    </body>
+</html>
