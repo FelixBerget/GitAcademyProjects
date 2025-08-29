@@ -16,6 +16,7 @@
                     createNumberSelector(13, 1, 31, 'Day')
                     + createNumberSelector(8, 1, 12, 'Month')
                     + createNumberSelector(2023, 2020, 2025, 'Year');
+            }
 
             function selectDay(day){
                 document.getElementById('DayMain').outerHTML =
@@ -34,7 +35,7 @@
             function createNumberSelector(num1, start, end, strin){
                 return `<div>${strin} ${num1} in the middle of ${start} and ${end} </div>`
             }
-}
+            
             let app = document.getElementById("app")
 
             function changeTemp(temperatur,type){
