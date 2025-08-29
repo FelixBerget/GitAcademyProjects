@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <title>No If</title>
+    <meta charset="UTF-8">
+
+    <body>
+
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+
+            function changeTemp(temperatur,type){
+                return type(temperatur)
+            }
+
+            function celcius(temperatur){
+                return temperatur * 9/5 + 32
+            }
+            function fahrenheit(temperatur){
+                return (temperatur - 32) * 5/9
+            }
+
+            console.log(changeTemp(30,celcius))
+            console.log(changeTemp(30,fahrenheit))
+        </script>
+    </body>
+</html>
