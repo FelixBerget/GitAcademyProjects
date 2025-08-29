@@ -6,8 +6,35 @@
     <body>
 
         <div id="app"></div>
+        
 
         <script>
+
+            showDateSelector()
+            function showDateSelector() {
+                document.getElementById('app').innerHTML =
+                    createNumberSelector(13, 1, 31, 'Day')
+                    + createNumberSelector(8, 1, 12, 'Month')
+                    + createNumberSelector(2023, 2020, 2025, 'Year');
+
+            function selectDay(day){
+                document.getElementById('DayMain').outerHTML =
+                    createNumberSelector(day, 1, 31, 'Day');
+                    }
+
+            function selectMonth(month){
+                document.getElementById('MonthMain').outerHTML =
+                    createNumberSelector(month, 1, 12, 'Month');
+                    }
+
+            function selectYear(year){
+                document.getElementById('YearMain').outerHTML =
+                    createNumberSelector(year, 2000, 2023, 'Year');
+                    }
+            function createNumberSelector(num1, start, end, strin){
+                return `<div>${strin} ${num1} in the middle of ${start} and ${end} </div>`
+            }
+}
             let app = document.getElementById("app")
 
             function changeTemp(temperatur,type){
@@ -29,10 +56,18 @@
                 let testNum = numb - 1
                 let strin = testNum + ""
                 let numberinstring = strin.charAt(0)
-                return parseInt(numberinstring)
+                let parsed = parseInt(numberinstring)
+                return parsed+1 
             }
             console.log(isAboveZero(-1))
             console.log(isAboveZero(1))
+
+            function isLongerThanTenLetters(par){
+                let eleventhLetter = par.charAt(11)
+                return eleventhLetter
+            }
+            console.log(isLongerThanTenLetters("helloiamfrom"))
+            console.log(isLongerThanTenLetters("helloilike"))
         </script>
     </body>
 </html>
