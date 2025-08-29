@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>For Fun</title>
+        <meta charset="UTF-8">
+        <style>
+
+            #app{
+                border: 4px solid darkred;
+                display: grid;
+                grid-template-columns: 150px 1fr 1fr;
+                grid-template-rows: 50px 50px 50px;
+
+            }
+            .part{
+                border: 2px solid darkgoldenrod;
+                text-align: center;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+            startIt()
+            function startIt(){
+                app.innerHTML=`
+                <div class="part">Test</div>
+                <div class="part">Test</div>
+                <div class="part">Test</div>
+                <div class="part">Test</div>
+                <div class="part">Test</div>
+                <div class="part"></div>
+                <div class="part"></div>`
+            }
+        </script>
+    </body>
+</html>
