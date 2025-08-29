@@ -11,7 +11,9 @@
                 grid-template-columns: 150px 1fr 1fr;
                 grid-template-rows: 50px 50px 50px;
                 border-radius: 30px;
-                transition: border-radius 2s;
+                transition: border-radius 20s;
+                transition: grid-template-rows 10s;
+                transition: border 10s;
 
             }
             .part{
@@ -31,8 +33,8 @@
             function startIt(){
                 app.innerHTML=`
                 <div class="part" onclick="changeBorder()">Test</div>
-                <div class="part">Test</div>
-                <div class="part">Test</div>
+                <div class="part" onclick="changeRows()">Test</div>
+                <div class="part" onclick="borderColorChange()">Test</div>
                 <div class="part">Test</div>
                 <div class="part">Test</div>
                 <div class="part"></div>
@@ -41,6 +43,12 @@
             }
             function changeBorder(){
                 app.style.borderRadius = "100px";
+            }
+            function changeRows(){
+                app.style.gridTemplateRows="1fr 1fr"
+            }
+            function borderColorChange(){
+                app.style.border="6px solid green"
             }
         </script>
     </body>
