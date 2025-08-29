@@ -23,6 +23,16 @@
 
             console.log(changeTemp(30,celcius))
             console.log(changeTemp(30,fahrenheit))
+
+            function isAboveZero(numb){
+                let v = false;
+                let testNum = numb - 1
+                let strin = testNum + ""
+                let numberinstring = strin.charAt(0)
+                return parseInt(numberinstring)
+            }
+            console.log(isAboveZero(-1))
+            console.log(isAboveZero(1))
         </script>
     </body>
 </html>
