@@ -30,12 +30,13 @@
         <script>
             let app = document.getElementById("app")
             startIt()
+            let parts = document.getElementsByClassName("part")
             function startIt(){
                 app.innerHTML=`
                 <div class="part" onclick="changeBorder()">Test</div>
                 <div class="part" onclick="changeRows()">Test</div>
                 <div class="part" onclick="borderColorChange()">Test</div>
-                <div class="part">Test</div>
+                <div class="part" onclick="switchPartColor()">Test</div>
                 <div class="part">Test</div>
                 <div class="part"></div>
                 <div class="part"></div>
@@ -49,6 +50,10 @@
             }
             function borderColorChange(){
                 app.style.border="6px solid green"
+            }
+            function switchPartColor(){
+                console.log("test")
+                parts[3].style.border="3px solid red"
             }
         </script>
     </body>
