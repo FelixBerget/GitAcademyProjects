@@ -19,6 +19,15 @@
                 console.log(numList)
                 console.log(numList.pop())
             }
+            sumOfNumbers()
+            function sumOfNumbers(){
+                let sum = 0;
+                for(let i=0;i<numList.length;i++){
+                    sum+=numList[i]
+                }
+                console.log(sum)
+                return sum
+            }
         </script>
     </body>
 </html>
