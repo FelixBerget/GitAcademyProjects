@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coding Fast</title>
+        <meta charset="UTF-8">
+        <style>
+            #h{
+                font-size: 35px;
+                color: blueviolet;
+            }
+            #t{
+                font-size: 15px;
+                border: 2px solid black;
+            }
+            #f{
+                background-color: black;
+                color: white;
+            }
+            #b{
+                background-color: coral;
+                color: darkcyan;
+            }
+            ol{
+                background-color: black;
+            }
+            li{
+                color: brown;
+                background-color: darkgoldenrod;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            let money = 1000000
+            let rent = 30000
+            let app = document.getElementById("app")
+            start()
+            function start(){
+                app.innerHTML=`
+                <div id="h">Open the project</div>
+                <div id="t">So this is my speedrunning coding project</div>
+                <img src="test.jpg" alt="my bad wrong image link"/>
+                `
+                addMore()
+            }
+            function addMore(){
+                app.innerHTML+=`
+                <div id="f">I have ${money}$ in my bank account and will pay the ${rent}$ rent</div>
+                <button id="b" onclick="addMore()">click the button to add more</button>
+                <ol>
+                    <li>hey</li>
+                    <li>hey</li>
+                    <li>hey</li>
+                </ol>`
+            }
+        </script>
+    </body>
+</html>
