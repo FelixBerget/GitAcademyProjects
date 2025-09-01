@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Every Seven Numbers</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            let botNumber = 100
+            let topNumber = 1000
+            let numList = []
+
+            evSeven()
+            function evSeven(){
+                for(botNumber;botNumber<topNumber;botNumber+=7){
+                    console.log(botNumber)
+                    numList.push(botNumber)
+                }
+                console.log(numList)
+                console.log(numList.pop())
+            }
+        </script>
+    </body>
+</html>
