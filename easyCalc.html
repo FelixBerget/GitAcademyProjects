@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Easy Calc</title>
+        <meta charset="UTF-8">
+
+        <style>
+            #app{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 100px 100px 100px 100px 100px;
+                background-color: burlywood;
+                font-size: 20px;
+            }
+            .calc{
+                border: 2px solid black;
+                background-color: antiquewhite;
+            }
+            #response{
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+
+            let storedpiece = ""
+            let app = document.getElementById("app")
+
+            openCalc()
+            function openCalc(){
+                app.innerHTML=`
+                <div class="calc" onclick="store(this)" id="1">1</div>
+                <div class="calc" onclick="store(this)" id="2">2</div>
+                <div class="calc" onclick="store(this)" id="3">3</div>
+                <div class="calc" onclick="store(this)" id="4">4</div>
+                <div class="calc" onclick="store(this)" id="5">5</div>
+                <div class="calc" onclick="store(this)" id="6">6</div>
+                <div class="calc" onclick="store(this)" id="7">7</div>
+                <div class="calc" onclick="store(this)" id="8">8</div>
+                <div class="calc" onclick="store(this)" id="9">9</div>
+                <div class="calc" onclick="store(this)" id="+">+</div>
+                <div class="calc" onclick="store(this)" id="-">-</div>
+                <div class="calc" onclick="calculate()" id="=">=</div>
+                <div class="calc" onclick="store(this)" id="*">*</div>
+                <div class="calc" onclick="store(this)" id="/">/</div>
+                <div class="calc" id="response">0</div>`
+            }
+            function store(item){
+                storedpiece+=item.id
+            }
+            function calculate(){
+                console.log(storedpiece)
+                let response = document.getElementById("response")
+                response.innerHTML=eval(storedpiece)
+                storedpiece=""
+            }
+        
+        </script>
+
+
+
+    </body>
+</html>
