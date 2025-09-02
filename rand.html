@@ -16,63 +16,115 @@
 
             let numberOfFish = 0;
             let waterFlask = false;
-            let wood = false
+            let wood = false;
+            let bearDefeated = false;
+
 
             let app = document.getElementById("app");
             startGame()
             function startGame(){
                 app.innerHTML=`
-                <div class="t">Hello and welcome to the forest</div>
-                <div class="t">Here are your avialable decisions</div>
+                <div class="t">Hello and welcome to the forest you are about to clean up</div>
+                <div class="t">Here are your avialable decisions, the paths to the West and to the South are open</div>
                 <button onclick="getWood()">Cut down a tree</button>
                 <button onclick="eatFish()">Eat fish</button>
                 <button onclick="getFish()">Fish in the river</button>
-                <button onclick="getWater()">Get water in the River</button>`
+                <button onclick="getWater()">Get water in the River</button>
+                <button onclick="goWest()">Go West</button>
+                <button onclick="goSouth()"">Go South</button>`
             }
             function getFish(){
                 if(numberOfFish<5){
                     numberOfFish++
-                    startGame()
                     app.innerHTML+=`<div class="t">Got a fish</div>`
                 }
                 else{
-                    startGame()
                     app.innerHTML+=`<div class="t">Pack is full of fish</div>`
                 }
             }
             function getWood(){
                 if(wood==false){
-                    startGame()
                     app.innerHTML+=`
                     <div id="t">Cut down the Tree</div>`
                     wood=true
                 }
                 else{
-                    startGame()
                     app.innerHTML+=`
-                    <div id="t">Already cut down the tree</div>`
+                    <div id="t">Already filled pack with the tree</div>`
                 }
             }
             function eatFish(){
                 if(numberOfFish>0){
                     numberOfFish--
-                    startGame()
                     app.innerHTML+=`<div class="t">Ate a fish</div>`
                 }
                 else{
-                    startGame()
                     app.innerHTML+=`<div class="t">You have no fish in your backpack</div>`
                 }
             }
             function getWater(){
                 if(waterFlask==false){
-                    startGame()
                     app.innerHTML+=`<div class="t">You filled the flask with water</div>`
                     waterFlask=true
                 }
                 else{
-                    startGame()
                     app.innerHTML+=`<div class="t">Flask is already full</div>`
+                }
+            }
+            function goSouth(){
+                app.innerHTML=`
+                <div class="t">There is a forest</div>
+                <div class="t">The forest is deep forest</div>
+                <button onclick="getWood()">Cut down a tree</button>
+                <button onclick="startGame()">Go back</button>
+                <button onclick="goMoreSouth()">Go more South</button>`
+                
+            }
+            function goMoreSouth(){
+                app.innerHTML=`
+                <div class="t">Bear!</div>
+                <div class="t">A huge bear comes out of the forest</div>
+                <button onclick="wardOffBear()"">Try to get out</button>`
+            }
+            function wardOffBear(){
+                if(numberOfFish>=4){
+                    app.innerHTML+=`
+                    <div class="t">The bear liked the fish and let you go</div>
+                    <button onclick="goSouth()">Go back north</button>`
+                    bearDefeated = true;
+                }
+                else{
+                    app.innerHTML="You got knocked out by the bear"
+                }
+            }
+            function goWest(){
+                app.innerHTML=`
+                <div class="t">The western desert is here</div>
+                <div class="t">To cross you need water</div>
+                <button onclick="crossDesert()">Cross the desert</button>`
+            }
+            function crossDesert(){
+                if(waterFlask){
+                    app.innerHTML=`
+                    <div class="t">You crossed the desert</div>
+                    <div class="t">There is a druid in front of you</div>
+                    <button onclick="isOneWithNature()">See if you are one with nature</button>
+                    `
+                }
+                else{
+                    app.innerHTML=`You passed out`
+                }
+            }
+            function isOneWithNature(){
+                if(!wood & bearDefeated){
+                    app.innerHTML=`
+                    <div class="t">You are a true nature friend</div>
+                    <div class="t">You gained the favour of nature for helping the forest</div>
+                    <div class="t">Game Won!</div>`
+                }
+                else{
+                    app.innerHTML=`
+                    You are a failiure to nature and have lost the game`
                 }
             }
         </script>
