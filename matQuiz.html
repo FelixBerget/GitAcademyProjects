@@ -4,7 +4,25 @@
         <title>Game</title>
         <meta charset="UTF-8">
         <style>
-
+            #h{
+                font-size: 40px;
+            }
+            div{
+                font-size: 25px;
+                background-color: black;
+                color: white
+            }
+            select{
+                font-size: 15px;
+            }
+            input{
+                font-size: 15px;
+            }
+            button{
+                background-color: brown;
+                color: lightgreen;
+                font-size: 20px;
+            }
         </style>
     </head>
     <body>
@@ -20,7 +38,8 @@
             function start(){
                 app.innerHTML=`
                 <div id="h">Hvilke mattype er du</div>
-                Navn <input type="text" id="name"/>
+                <div id="p">Navn</div>
+                <input type="text" id="name"/>
                 <select name="persType" id="persType">
                     <option value="introvert">Introvert</option>
                     <option value="ekstrovert">Ekstrovert</option>
@@ -41,30 +60,32 @@
                 let persType = document.getElementById("persType")
                 let ferie = document.getElementById("ferie")
                 let bestCode = document.getElementById("bestCode")
-
+                if(name.value==""){
+                    name.value="Du"
+                }
                 if(bestCode.value=="c#"){
-                    app.innerHTML+=`<div>Drikken som passer deg er en Pepsi Max</div>`
+                    app.innerHTML+=`<div>Drikken som passer deg er en kaffe ☕</div>`
                 }
                 else if(bestCode.value=="javaScript"){
-                    app.innerHTML+=`<div>Drikken som passer deg er en med Farris</div>`
+                    app.innerHTML+=`<div>Drikken som passer deg er en Farris 💧</div>`
                 }
                 if(ferie.value=="hav" & persType.value=="introvert"){
-                    app.innerHTML+=`<div> ${name.value} er Sushi</div>`
+                    app.innerHTML+=`<div> ${name.value} er Sushi 🍣</div>`
                     return "Sushi bruker laks pga Norsk reklamering i Japan"
                 }
                 
                 else if(ferie.value=="fjell" & persType.value=="introvert"){
-                    app.innerHTML+=`<div> ${name.value} er en Pølse </div>`
+                    app.innerHTML+=`<div> ${name.value} er en Pølse 🌭</div>`
                     return "Nordmenn spiser rundt 2 pølser hver på 17 mai "
                 }
                 
                 else if(ferie.value=="hav" & persType.value=="ekstrovert"){
-                    app.innerHTML+=`<div> ${name.value} er Paella</div>`
+                    app.innerHTML+=`<div> ${name.value} er Paella 🥘</div>`
                     return "Paella kan spises med mange forksjellige kjøtttyper som kanin og reker"
                 }
                 
                 else if(ferie.value=="fjell" & persType.value=="ekstrovert"){
-                    app.innerHTML+=`<div> ${name.value} er en Hamburger</div>`
+                    app.innerHTML+=`<div> ${name.value} er en Hamburger 🍔</div>`
                     return "Hamburgere het originalt Hamburg stek og var uten brød"
                 }
             }
