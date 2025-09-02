@@ -5,6 +5,22 @@
         <meta charset="UTF-8">
         <style>
 
+            .t{
+                color: cadetblue;
+                background-color: black;
+                border: 2px dotted salmon;
+                margin: 3px;
+            }
+            #app{
+                background-color: black;
+                border: 5px solid lightgray;
+            }
+            button{
+                background-color: black;
+                color:red;
+                border: solid white;
+                display: grid;
+            }
         </style>
     </head>
     <body>
@@ -94,7 +110,7 @@
                     bearDefeated = true;
                 }
                 else{
-                    app.innerHTML="You got knocked out by the bear"
+                    app.innerHTML=`<div class="t">You got knocked out by the bear</div>`
                 }
             }
             function goWest(){
@@ -112,7 +128,8 @@
                     `
                 }
                 else{
-                    app.innerHTML=`You passed out`
+                    app.innerHTML=`
+                    <div class="t">You passed out</div>`
                 }
             }
             function isOneWithNature(){
@@ -124,7 +141,7 @@
                 }
                 else{
                     app.innerHTML=`
-                    You are a failiure to nature and have lost the game`
+                    <div class="t">You evil to nature and have lost the game</div>`
                 }
             }
         </script>
