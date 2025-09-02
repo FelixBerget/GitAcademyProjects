@@ -38,6 +38,7 @@
             let waterFlask = false;
             let wood = false;
             let bearDefeated = false;
+            let wonGame = false;
 
 
             let app = document.getElementById("app");
@@ -142,11 +143,13 @@
                     <div class="t">You are a true nature friend</div>
                     <div class="t">You gained the favour of nature for helping the forest</div>
                     <div class="t">Game Won!</div>`
+                    wonGame=true
                 }
                 else{
                     app.innerHTML=`
                     <div class="t">You evil to nature and have lost the game</div>`
                 }
+                return wonGame
             }
         </script>
     </body>
