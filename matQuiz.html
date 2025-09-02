@@ -20,7 +20,7 @@
             function start(){
                 app.innerHTML=`
                 <div id="h">Hvilke mattype er du</div>
-                <input type="text" id="name"/>
+                Navn <input type="text" id="name"/>
                 <select name="persType" id="persType">
                     <option value="introvert">Introvert</option>
                     <option value="ekstrovert">Ekstrovert</option>
@@ -29,6 +29,10 @@
                     <option value="fjell">Fjell</option>
                     <option value="hav">Hav</option>
                 </select>
+                <select name="bestCode" id="bestCode">
+                    <option value="c#">C#</option>
+                    <option value="javaScript">JavaScript</option>
+                </select>
                 <button id="b" onclick="getPersType()">Klikk her for svar</button>
                 `
             }
@@ -36,22 +40,32 @@
                 let name = document.getElementById("name")
                 let persType = document.getElementById("persType")
                 let ferie = document.getElementById("ferie")
+                let bestCode = document.getElementById("bestCode")
 
-                console.log(name)
+                if(bestCode.value=="c#"){
+                    app.innerHTML+=`<div>Drikken som passer deg er en Pepsi Max</div>`
+                }
+                else if(bestCode.value=="javaScript"){
+                    app.innerHTML+=`<div>Drikken som passer deg er en med Farris</div>`
+                }
                 if(ferie.value=="hav" & persType.value=="introvert"){
-                    app.innerHTML+=`<div> ${name.value} er en Sushi</div>`
+                    app.innerHTML+=`<div> ${name.value} er Sushi</div>`
+                    return "Sushi bruker laks pga Norsk reklamering i Japan"
                 }
                 
                 else if(ferie.value=="fjell" & persType.value=="introvert"){
-                    app.innerHTML+=`<div> ${name.value} er en Kjøttkaker</div>`
+                    app.innerHTML+=`<div> ${name.value} er en Pølse </div>`
+                    return "Nordmenn spiser rundt 2 pølser hver på 17 mai "
                 }
                 
                 else if(ferie.value=="hav" & persType.value=="ekstrovert"){
-                    app.innerHTML+=`<div> ${name.value} er en Paella</div>`
+                    app.innerHTML+=`<div> ${name.value} er Paella</div>`
+                    return "Paella kan spises med mange forksjellige kjøtttyper som kanin og reker"
                 }
                 
                 else if(ferie.value=="fjell" & persType.value=="ekstrovert"){
                     app.innerHTML+=`<div> ${name.value} er en Hamburger</div>`
+                    return "Hamburgere het originalt Hamburg stek og var uten brød"
                 }
             }
         </script>
