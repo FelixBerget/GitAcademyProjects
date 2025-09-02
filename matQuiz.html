@@ -30,7 +30,7 @@
         <div id="app"></div>
         <script>
             //Ta imot personlighetstype og dermed gi tilbake melding om hvem du er
-            //Bruke input for introvert og ekstrovert, og input for liker fjell eller hav ferie
+            //Bruke input for introvert og ekstrovert, og input for liker fjell eller hav ferie, tar også imot input om programmeringspråk for drikken
 
             let app = document.getElementById("app")
 
@@ -71,7 +71,7 @@
                 }
                 if(ferie.value=="hav" & persType.value=="introvert"){
                     app.innerHTML+=`<div> ${name.value} er Sushi 🍣</div>`
-                    return "Sushi bruker laks pga Norsk reklamering i Japan"
+                    return "Sushi bruker laks pga Norsk reklame i Japan"
                 }
                 
                 else if(ferie.value=="fjell" & persType.value=="introvert"){
