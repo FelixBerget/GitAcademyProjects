@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game</title>
+        <meta charset="UTF-8">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        
+        <div id="app"></div>
+        <script>
+            //Ta imot personlighetstype og dermed gi tilbake melding om hvem du er
+            //Bruke input for introvert og ekstrovert, og input for liker fjell eller hav ferie
+
+            let app = document.getElementById("app")
+
+            start()
+            function start(){
+                app.innerHTML=`
+                <div id="h">Hvilke mattype er du</div>
+                <input type="text" id="name"/>
+                <select name="persType" id="persType">
+                    <option value="introvert">Introvert</option>
+                    <option value="ekstrovert">Ekstrovert</option>
+                </select>
+                <select name="ferie" id="ferie">
+                    <option value="fjell">Fjell</option>
+                    <option value="hav">Hav</option>
+                </select>
+                <button id="b" onclick="getPersType()">Klikk her for svar</button>
+                `
+            }
+            function getPersType(){
+                let name = document.getElementById("name")
+                let persType = document.getElementById("persType")
+                let ferie = document.getElementById("ferie")
+
+                console.log(name)
+                if(ferie.value=="hav" & persType.value=="introvert"){
+                    app.innerHTML+=`<div> ${name.value} er en Sushi</div>`
+                }
+                
+                else if(ferie.value=="fjell" & persType.value=="introvert"){
+                    app.innerHTML+=`<div> ${name.value} er en Kjøttkaker</div>`
+                }
+                
+                else if(ferie.value=="hav" & persType.value=="ekstrovert"){
+                    app.innerHTML+=`<div> ${name.value} er en Paella</div>`
+                }
+                
+                else if(ferie.value=="fjell" & persType.value=="ekstrovert"){
+                    app.innerHTML+=`<div> ${name.value} er en Hamburger</div>`
+                }
+            }
+        </script>
+    </body>
+</html>

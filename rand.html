@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game</title>
+        <meta charset="UTF-8">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+
+        <div id="app"></div>
+
+        <script>
+
+            let numberOfFish = 0;
+            let waterFlask = false;
+            let wood = false
+
+            let app = document.getElementById("app");
+            startGame()
+            function startGame(){
+                app.innerHTML=`
+                <div class="t">Hello and welcome to the forest</div>
+                <div class="t">Here are your avialable decisions</div>
+                <button onclick="getWood()">Cut down a tree</button>
+                <button onclick="eatFish()">Eat fish</button>
+                <button onclick="getFish()">Fish in the river</button>
+                <button onclick="getWater()">Get water in the River</button>`
+            }
+            function getFish(){
+                if(numberOfFish<5){
+                    numberOfFish++
+                    startGame()
+                    app.innerHTML+=`<div class="t">Got a fish</div>`
+                }
+                else{
+                    startGame()
+                    app.innerHTML+=`<div class="t">Pack is full of fish</div>`
+                }
+            }
+            function getWood(){
+                if(wood==false){
+                    startGame()
+                    app.innerHTML+=`
+                    <div id="t">Cut down the Tree</div>`
+                    wood=true
+                }
+                else{
+                    startGame()
+                    app.innerHTML+=`
+                    <div id="t">Already cut down the tree</div>`
+                }
+            }
+            function eatFish(){
+                if(numberOfFish>0){
+                    numberOfFish--
+                    startGame()
+                    app.innerHTML+=`<div class="t">Ate a fish</div>`
+                }
+                else{
+                    startGame()
+                    app.innerHTML+=`<div class="t">You have no fish in your backpack</div>`
+                }
+            }
+            function getWater(){
+                if(waterFlask==false){
+                    startGame()
+                    app.innerHTML+=`<div class="t">You filled the flask with water</div>`
+                    waterFlask=true
+                }
+                else{
+                    startGame()
+                    app.innerHTML+=`<div class="t">Flask is already full</div>`
+                }
+            }
+        </script>
+    </body>
+</html>
