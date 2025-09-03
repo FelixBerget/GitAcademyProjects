@@ -42,7 +42,9 @@
             let divs = document.getElementsByClassName("speech-bubble")
             console.log(divs)
             for(i in divs){
-                if(divs[i].innerHTML){
+                let str = divs[i].innerHTML
+                console.log(str)
+                if(str.includes("HELLO")){
                     divs[i].style.backgroundColor="red"
                 }
             }
