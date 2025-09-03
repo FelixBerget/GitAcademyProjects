@@ -38,6 +38,14 @@
             <div id="medium" class="speech-bubble">HELLO I AM HERE</div>
             <div id="mega" class="speech-bubble">I AM SPEAKING!</div>
             <div id="small" class="speech-bubble">Thanks</div>`
+
+            let divs = document.getElementsByClassName("speech-bubble")
+            console.log(divs)
+            for(i in divs){
+                if(divs[i].innerHTML){
+                    divs[i].style.backgroundColor="red"
+                }
+            }
         </script>
     </body>
 </html>
