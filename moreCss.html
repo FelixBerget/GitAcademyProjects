@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trying more CSS</title>
+        <meta charset="UTF-8">
+        <style>
+
+            .speech-bubble{
+                border: 4px solid black;
+                border-radius: 20px;
+                text-align: center;
+                margin: 100px;
+            }
+            #medium{
+                font-size: 30px;
+            }
+            #mega{
+                font-size: 40px;
+                border-radius: 35px;
+                margin: 20px;
+            }
+            #small{
+                margin-top: 20px;
+                font-size: 24px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="app"></div>
+        
+        <script>
+
+            let app = document.getElementById("app")
+
+            app.innerHTML+=`
+            <div id="medium" class="speech-bubble">HELLO I AM HERE</div>
+            <div id="mega" class="speech-bubble">I AM SPEAKING!</div>
+            <div id="small" class="speech-bubble">Thanks</div>`
+        </script>
+    </body>
+</html>
