@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo task</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <div id="app"></div>
+        <script>
+
+            let task1 = {text:"Clean room",doneDate:"2025:August:04 Central European Timezone 19.00",responsible:"John Doe"}
+            let task2 = {text:"Build House",doneDate:"2025:February:23 Central European Timezone 21.00",responsible:"John Doe"}
+            let task3 = {text:"Make dinner",doneDate:"2015:February:10 Central European Timezone 18.30",responsible:"Bob"}
+            let task4 = {text:"Produce movie",doneDate:null,responsible:"Amanda"}
+
+            let l = []
+            l.push(task1)
+            l.push(task2)
+            l.push(task3)
+            l.push(task4)
+            let app = document.getElementById("app")
+            start()
+            function start(){
+                app.innerHTML=`
+                <input type="text" id="tak">Task</input>
+                <input type="text" id="dat">Date</input>
+                <input type="text" id="nam">Name</input>
+                <input type="number" id="chosen">Chosen Target</input>
+                <ol>
+                `
+                for(i in l){
+                    if(l[i].doneDate==null) l[i].doneDate="not done"
+                    app.innerHTML+=`
+                    <li id="${l[i]}">${l[i].text} ${l[i].doneDate} by ${l[i].responsible} <button onclick="doPart(${i})">Click here to do</button><button onclick="removePart(${i})">Click to remove</button></li>`
+                }
+                app.innerHTML+=`</ol>
+                <button onclick="addObject()">Click to add object</button>
+                <button onclick="changeText()">Change the text of chosen index</button>`
+            }
+            function doPart(i){
+                l[i].doneDate="2025:September:03 Central European Timezone 15.00"
+                start()
+            }
+            function removePart(i){
+                l.splice(i,1)
+                start()
+            }
+            
+            function addObject(){
+                let tak = document.getElementById("tak")
+                let dat = document.getElementById("dat")
+                let nam = document.getElementById("nam")
+                let tsk = {text:tak.value,doneDate:dat.value,responsible:nam.value}
+                console.log(tsk)
+                l.push(tsk)
+                start()
+            }
+            function changeText(){
+                let chosenNum = document.getElementById("chosen").value
+                console.log(chosenNum)
+                let tak = document.getElementById("tak")
+                let dat = document.getElementById("dat")
+                let nam = document.getElementById("nam")
+                l[chosenNum].text=tak.value
+                l[chosenNum].responsible=nam.value
+                start()
+            }
+
+
+        </script>
+    </body>
+</html>
