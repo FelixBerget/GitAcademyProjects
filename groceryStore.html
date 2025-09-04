@@ -26,17 +26,17 @@
             let app = document.getElementById("app")
 
 
-            let mincedMeat = {name:"minced meat",quality:"normal",price:60,stock:4}
-            let lettuce = {name:"lettuce",quality:"cheap",price:20,stock:5}
-            let cheddar = {name:"cheddar",quality:"special",price:100,stock:2}
-            let frozenPizza = {name:"frozen pizza",quality:"cheap",price:110,stock:4}
-            let filletMignon = {name:"fillet mignon",quality:"good quality",price:250,stock:2}
-            let cola = {name:"cola",quality:"normal",price:25,stock:10}
-            let tacoSpice = {name:"taco spice",quality:"import",price:50,stock:3}
-            let tomato = {name:"tomato",quality:"organic",price:10,stock:20}
-            let farris = {name: "farris",quality:"lemon",price:20,stock:10}
-            let burgerSet = {name: "burger set",quality:"full",price:300,stock:1}
-            let champagne = {name: "champagne",quality:"deluxe",price:1200,stock:1}
+            let mincedMeat = {name:"minced meat",quality:"normal",price:60,stock:4,originalstock:4,isHalved:false}
+            let lettuce = {name:"lettuce",quality:"cheap",price:20,stock:5,originalstock:5,isHalved:false}
+            let cheddar = {name:"cheddar",quality:"special",price:100,stock:2,originalstock:2,isHalved:false}
+            let frozenPizza = {name:"frozen pizza",quality:"cheap",price:110,stock:4,originalstock:4,isHalved:false}
+            let filletMignon = {name:"fillet mignon",quality:"good quality",price:250,stock:2,originalstock:2,isHalved:false}
+            let cola = {name:"cola",quality:"normal",price:25,stock:10,originalstock:10,isHalved:false}
+            let tacoSpice = {name:"taco spice",quality:"import",price:50,stock:3,originalstock:3,isHalved:false}
+            let tomato = {name:"tomato",quality:"organic",price:10,stock:20,originalstock:20,isHalved:false}
+            let farris = {name: "farris",quality:"lemon",price:20,stock:10,originalstock:10,isHalved:false}
+            let burgerSet = {name: "burger set",quality:"full",price:300,stock:1,originalstock:1,isHalved:false}
+            let champagne = {name: "champagne",quality:"deluxe",price:1200,stock:1,originalstock:1,isHalved:false}
             let ar = [mincedMeat,lettuce,cheddar,frozenPizza,filletMignon,cola,tacoSpice,tomato,farris,burgerSet,champagne]
             let shoppingCart = []
             let fullprice = 0
@@ -62,7 +62,13 @@
                 if(ar[item].stock<=0){
                     return
                 }
+                console.log(ar[item].price)
                 ar[item].stock--
+                console.log(ar[item].isHalved)
+                if(ar[item].stock<(ar[item].originalstock/2) & ar[item].isHalved==false){
+                    ar[item].isHalved=true
+                    ar[item].price = ar[item].price*0.75;
+                }
                 fullprice+=ar[item].price
                 shoppingCart.push(ar[item])
                 start()
