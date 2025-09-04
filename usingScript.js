@@ -24,3 +24,7 @@ function again(){
 <img src="" alt="yeah there is no image"/>
 <button onclick="start()">Click to change view</button>                `
 }
+
+function giveRapVerse(){
+    return "I like to rap, snap and own a cap. Going to Italy is silly."
+}
