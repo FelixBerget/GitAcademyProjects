@@ -28,3 +28,8 @@ function again(){
 function giveRapVerse(){
     return "I like to rap, snap and own a cap. Going to Italy is silly."
 }
+function changeColor(){
+    let s = document.getElementById("s")
+
+    s.style.color="yellow"
+}
