@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Penalty taker simulator</title>
+        <meta charset="UTF-8">
+        <style>
+            div{
+                text-align: center;
+                background-color: green;
+                color: white;
+            }
+            #h{
+                font-size: 35px;
+            }
+            button{
+                background-color: darkgreen;
+                color: white;
+                border: 1px solid white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+
+        <script>
+
+            let app = document.getElementById("app")
+
+            randNum = 0
+            keeperGoing = ""
+            shootingWhere = ""
+            start()
+            function start(){
+                app.innerHTML=`
+                <div id="h">Shoot the football at goal</div>
+                <button onclick="goLeft()">Shoot Left</button>
+                <button onclick="goRight()">Shoot Right</button>
+                <button onclick="goMiddle()">Shoot Middle</button>`
+            }
+            function goLeft(){
+                shootingWhere="left"
+                randNum=Math.random()*3
+                if(randNum>2){
+                    keeperGoing="left"
+                }
+                else if(randNum>1){
+                    keeperGoing="middle"
+                }
+                else{
+                    keeperGoing="right"
+                }
+                
+                if(shootingWhere==keeperGoing){
+                    app.innerHTML=`
+                    <div>You shot ${shootingWhere} the keeper dived ${keeperGoing} and you Scored!</div>`
+                }
+                else{
+                    app.innerHTML=`
+                    <div>You shot ${shootingWhere} the keeper dived ${keeperGoing} and you Missed</div>`
+                }
+            }
+            function goRight(){
+                shootingWhere="right"
+                if(randNum>2){
+                    keeperGoing="left"
+                }
+                else if(randNum>1){
+                    keeperGoing="middle"
+                }
+                else{
+                    keeperGoing="right"
+                }
+                
+                if(shootingWhere==keeperGoing){
+                    app.innerHTML=`
+                    <div>You shot ${shootingWhere} the keeper dived ${keeperGoing} and you Scored!</div>`
+                }
+                else{
+                    app.innerHTML=`
+                    <div>You shot ${shootingWhere} the keeper dived ${keeperGoing} and you Missed</div>`
+                }
+            }
+            function goMiddle(){
+                shootingWhere="middle"
+                if(randNum>2){
+                    keeperGoing="left"
+                }
+                else if(randNum>1){
+                    keeperGoing="middle"
+                }
+                else{
+                    keeperGoing="right"
+                }
+                
+                if(shootingWhere==keeperGoing){
+                    app.innerHTML=`
+                    <div>You shot ${shootingWhere} the keeper dived ${keeperGoing} and you Scored!</div>`
+                }
+                else{
+                    app.innerHTML=`
+                    <div>You shot ${shootingWhere} the keeper dived ${keeperGoing} and you Missed</div>`
+                }
+            }
+        </script>
+    </body>
+</html>
