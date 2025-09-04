@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grocery Store</title>
+        <meta charset="UTF-8">
+        <style>
+            #h{
+                font-size: 30px;
+            }
+            .t{
+                font-size: 20px;
+                display: grid;
+                grid-template-columns: 30% 20%;
+            }
+            button{
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+
+
+            let mincedMeat = {name:"minced meat",quality:"normal",price:60}
+            let lettuce = {name:"lettuce",quality:"cheap",price:20}
+            let cheddar = {name:"cheddar",quality:"special",price:100}
+            let frozenPizza = {name:"frozen pizza",quality:"cheap",price:110}
+            let filletMignon = {name:"fillet mignon",quality:"good quality",price:250}
+            let cola = {name:"cola",quality:"normal",price:25}
+            let tacoSpice = {name:"taco spice",quality:"import",price:50}
+            let tomato = {name:"tomato",quality:"organic",price:10}
+            let farris = {name: "farris",quality:"lemon",price:20}
+            let burgerSet = {name: "burger set",quality:"full",price:300}
+            let champagne = {name: "champagne",quality:"deluxe",price:1200}
+            let ar = [mincedMeat,lettuce,cheddar,frozenPizza,filletMignon,cola,tacoSpice,tomato,farris,burgerSet,champagne]
+            let shoppingCart = []
+            let fullprice = 0
+            let wallet = 1000
+            start()
+            function start(){
+                app.innerHTML=`
+                <div id="h">Welcome to the grocecry store</div>
+                <div class="t">What would you like to buy</div>
+                <div class="t">Prices are set on the list of items</div>
+                <ol>`
+                for(i in ar){
+                    app.innerHTML+=`
+                    <li class="t" id="${i}">${ar[i].quality} ${ar[i].name} ${ar[i].price} kr<button onclick="addToCart(${i})">Click here to add to cart</button></li>`
+                }
+                app.innerHTML+=`</ol>
+                <div id="fp" class="t">Price of cart = ${fullprice}kr</div>
+                <button onclick="buyItems()">Click to buy cart</button>
+                <button onclick="clearCart()">Click to clear the cart</button>"
+                <div id="wal" class="t">Wallet is ${wallet}kr</div>`
+            }
+            function addToCart(item){
+                fullprice+=ar[item].price
+                shoppingCart.push(ar[item])
+                start()
+            }
+            function buyItems(){
+                if(wallet-fullprice<0){
+                    app.innerHTML+=`<div class="t">Too expensive</div>`
+                    return
+                }
+                wallet-=fullprice
+                fullprice=0
+                itemAmount = 0
+                for(i in ar){
+                    for(j in shoppingCart){
+                        if(ar[i]==shoppingCart[j]){
+                            itemAmount++
+                        }
+                    }
+                }
+                start()
+                app.innerHTML+=`<div class="t">You bought ${itemAmount} items</div>`
+            }
+            function clearCart(){
+                fullprice=0
+                shoppingCart=[]
+                start()
+            }
+
+        </script>
+    </body>
+</html>
