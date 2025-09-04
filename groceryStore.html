@@ -26,17 +26,17 @@
             let app = document.getElementById("app")
 
 
-            let mincedMeat = {name:"minced meat",quality:"normal",price:60}
-            let lettuce = {name:"lettuce",quality:"cheap",price:20}
-            let cheddar = {name:"cheddar",quality:"special",price:100}
-            let frozenPizza = {name:"frozen pizza",quality:"cheap",price:110}
-            let filletMignon = {name:"fillet mignon",quality:"good quality",price:250}
-            let cola = {name:"cola",quality:"normal",price:25}
-            let tacoSpice = {name:"taco spice",quality:"import",price:50}
-            let tomato = {name:"tomato",quality:"organic",price:10}
-            let farris = {name: "farris",quality:"lemon",price:20}
-            let burgerSet = {name: "burger set",quality:"full",price:300}
-            let champagne = {name: "champagne",quality:"deluxe",price:1200}
+            let mincedMeat = {name:"minced meat",quality:"normal",price:60,stock:4}
+            let lettuce = {name:"lettuce",quality:"cheap",price:20,stock:5}
+            let cheddar = {name:"cheddar",quality:"special",price:100,stock:2}
+            let frozenPizza = {name:"frozen pizza",quality:"cheap",price:110,stock:4}
+            let filletMignon = {name:"fillet mignon",quality:"good quality",price:250,stock:2}
+            let cola = {name:"cola",quality:"normal",price:25,stock:10}
+            let tacoSpice = {name:"taco spice",quality:"import",price:50,stock:3}
+            let tomato = {name:"tomato",quality:"organic",price:10,stock:20}
+            let farris = {name: "farris",quality:"lemon",price:20,stock:10}
+            let burgerSet = {name: "burger set",quality:"full",price:300,stock:1}
+            let champagne = {name: "champagne",quality:"deluxe",price:1200,stock:1}
             let ar = [mincedMeat,lettuce,cheddar,frozenPizza,filletMignon,cola,tacoSpice,tomato,farris,burgerSet,champagne]
             let shoppingCart = []
             let fullprice = 0
@@ -59,6 +59,10 @@
                 <div id="wal" class="t">Wallet is ${wallet}kr</div>`
             }
             function addToCart(item){
+                if(ar[item].stock<=0){
+                    return
+                }
+                ar[item].stock--
                 fullprice+=ar[item].price
                 shoppingCart.push(ar[item])
                 start()
@@ -73,7 +77,7 @@
                 itemAmount = 0
                 for(i in ar){
                     for(j in shoppingCart){
-                        if(ar[i]==shoppingCart[j]){
+                        if(ar[i].name==shoppingCart[j].name){
                             itemAmount++
                         }
                     }
