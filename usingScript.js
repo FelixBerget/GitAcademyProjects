@@ -33,3 +33,12 @@ function changeColor(){
 
     s.style.color="yellow"
 }
+
+function checkIfStyleHasChanged(){
+    if(s.style.color=="yellow"){
+        return true
+    }
+    else{
+        return false
+    }
+}
