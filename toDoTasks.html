@@ -20,8 +20,13 @@
             l.push(task3)
             l.push(task4)
             let app = document.getElementById("app")
+            let v = 0
+            let underLimit = 0
+            let limit = 10
+            let isNotEveryone = false
             start()
             function start(){
+                console.log(v)
                 app.innerHTML=`
                 <input type="text" id="tak">Task</input>
                 <input type="text" id="dat">Date</input>
@@ -29,14 +34,50 @@
                 <input type="number" id="chosen">Chosen Target</input>
                 <ol>
                 `
-                for(i in l){
-                    if(l[i].doneDate==null) l[i].doneDate="not done"
+                if(!isNotEveryone){
+                    for(let i=underLimit;i<l.length;i++){
+                        console.log("i = " + i)
+                        if(l[i].doneDate==null) l[i].doneDate="not done"
+                        if(i == l.length+1){
+                            app.innerHTML+=`
+                            </ol>`
+                        }
+                        else if(i<=limit){
+                            app.innerHTML+=`
+                            <li id="${l[i]}">${l[i].text} ${l[i].doneDate} by ${l[i].responsible} <button onclick="doPart(${i})">Click here to do</button><button onclick="removePart(${i})">Click to remove</button></li>`
+                        }
+                        else{
+                            app.innerHTML+=`<div>Link to go further</div>
+                            <button onclick="showpart()">Click here to go to the next part</button>`
+                            console.log("added button")
+                        }
+                    }
+                }else{
                     app.innerHTML+=`
-                    <li id="${l[i]}">${l[i].text} ${l[i].doneDate} by ${l[i].responsible} <button onclick="doPart(${i})">Click here to do</button><button onclick="removePart(${i})">Click to remove</button></li>`
+                    <li id=${l[v]}>${l[v].text} ${l[v].doneDate} by ${l[v].responsible} <button onclick="doPart(${v})">Click here to do</button><button onclick="removePart(${v})">Click to remove</button></li>`
                 }
-                app.innerHTML+=`</ol>
+                app.innerHTML+=`
+                <button onclick="goBackList()">Click to go back to the other list</div>
                 <button onclick="addObject()">Click to add object</button>
-                <button onclick="changeText()">Change the text of chosen index</button>`
+                <button onclick="changeText()">Change the text of chosen index</button>
+                <button onclick="resetList()">Reset the list back to everyone</button>`
+                let optionString=""
+                for(i in l){
+                    if(i==0){
+                        optionString+=`
+                        <select name="dropdown" id="drop" onchange="storeNum(this.value)">
+                            <option value="everone">Everyone</option>`
+                    }
+                    let numb = parseInt(i)
+                    optionString+=`
+                        <option value="${numb+1}">${numb+1}</option>`
+                    if(i+1==l.length){
+                        optionString+=`
+                        </select>`
+                    }
+                }
+                console.log(optionString)
+                app.innerHTML+=optionString 
             }
             function doPart(i){
                 l[i].doneDate="2025:September:03 Central European Timezone 15.00"
@@ -64,6 +105,33 @@
                 let nam = document.getElementById("nam")
                 l[chosenNum].text=tak.value
                 l[chosenNum].responsible=nam.value
+                start()
+            }
+            function storeNum(t){
+                console.log(t)
+                if(t!=0){
+                    isNotEveryone=true
+                }
+                else{
+                    isNotEveryone=false
+                }
+                v = t-1
+                start()
+            }
+            function resetList(){
+                isNotEveryone=false
+                start()
+            }
+            function showpart(){
+                limit+=9
+                underLimit+=9
+                start()
+            }
+            function goBackList(){
+                if(underLimit!=0){
+                    underLimit-=9
+                    limit-=9
+                }
                 start()
             }
 
