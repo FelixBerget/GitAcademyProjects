@@ -37,7 +37,9 @@
             m.innerText="Spaghetti i am busy and if you ask me, i like to ski"
 
             function biggerApp(){
-                app.innerHTML+=app.innerText
+                let storedText = app.innerText
+                app.innerHTML=m.innerText
+                m.innerHTML=storedText
             }
         </script>
     </body>
