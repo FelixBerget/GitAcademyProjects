@@ -19,7 +19,20 @@
             }
             function advice(){
                 let c = document.getElementById("c")
-                c.innerText="BPM is the key to vibe in a song"
+                let n = Math.floor(Math.random()*(3)+1)
+                console.log(n)
+                switch(n){
+                    case 1:
+                        c.innerText="BPM is the key to vibe in a song";
+                        break;
+                    case 2:
+                        c.innerHTML="Synths should be layered";
+                        break;
+                    case 3:
+                        c.innerHTML="Going up and down with the instruments gives a good groove";
+                        break;
+                }
+                
             }
         </script>
     </body>
