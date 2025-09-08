@@ -3,6 +3,17 @@
     <head>
         <title>Just to get some more practice</title>
         <meta charset="UTF-8">
+        <style>
+            #c{
+                background-color: blue;
+                color: lightgreen;
+            }
+            #g{
+                background-color: aqua;
+                color: red;
+                border: 2px solid red ;
+            }
+        </style>
     </head>
     <body>
         <div id="app"></div>
@@ -15,24 +26,47 @@
             function start(){
                 app.innerHTML+=`
                 <div id="h">Producing Music is difficult</div>
-                <div id="c" onclick="advice()">Click here for advice</div>`
+                <div id="c" onclick="advice()">Click here for advice</div>
+                <div id="g" onclick="genre()">Click here to get a random music genre</div>`
             }
             function advice(){
                 let c = document.getElementById("c")
                 let n = Math.floor(Math.random()*(3)+1)
-                console.log(n)
                 switch(n){
                     case 1:
                         c.innerText="BPM is the key to vibe in a song";
                         break;
                     case 2:
-                        c.innerHTML="Synths should be layered";
+                        c.innerText="Synths should be layered";
                         break;
                     case 3:
-                        c.innerHTML="Going up and down with the instruments gives a good groove";
+                        c.innerText="Going up and down with the instruments gives a good groove";
                         break;
                 }
                 
+            }
+            function genre(){
+                let g = document.getElementById("g")
+                let n = Math.floor(Math.random()*(5)+1)
+
+                switch(n){
+                    case 1:
+                        g.innerText="Rock&Roll"
+                        break;
+                    case 2:
+                        g.innerText="East Coast Hip Hop"
+                        break;
+                    case 3:
+                        g.innerText="City Pop"
+                        break;
+                    case 4:
+                        g.innerText="Thrash Metal"
+                        break;
+                    case 5:
+                        g.innerText="Folk"
+                        break;
+                }
+
             }
         </script>
     </body>
