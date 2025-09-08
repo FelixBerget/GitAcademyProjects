@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Just to get some more practice</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+
+            let app = document.getElementById("app")
+
+            start()
+            function start(){
+                app.innerHTML+=`
+                <div id="h">Producing Music is difficult</div>
+                <div id="c" onclick="advice()">Click here for advice</div>`
+            }
+            function advice(){
+                let c = document.getElementById("c")
+                c.innerText="BPM is the key to vibe in a song"
+            }
+        </script>
+    </body>
+</html>
