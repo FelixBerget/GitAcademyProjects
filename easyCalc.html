@@ -8,7 +8,7 @@
             #app{
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
-                grid-template-rows: 100px 100px 100px 100px 100px;
+                grid-template-rows: 100px 100px 100px 100px 100px 100px;
                 background-color: burlywood;
                 font-size: 20px;
             }
@@ -18,6 +18,10 @@
             }
             #response{
                 font-size: 30px;
+            }
+            #equation{
+                background-color: black;
+                color: white;
             }
         </style>
     </head>
@@ -46,16 +50,21 @@
                 <div class="calc" onclick="calculate()" id="=">=</div>
                 <div class="calc" onclick="store(this)" id="*">*</div>
                 <div class="calc" onclick="store(this)" id="/">/</div>
-                <div class="calc" id="response">0</div>`
+                <div class="calc" id="response">0</div>
+                <div id="equation"></div>`
             }
             function store(item){
                 storedpiece+=item.id
+                let eq = document.getElementById("equation")
+                eq.innerText=storedpiece
             }
             function calculate(){
                 console.log(storedpiece)
                 let response = document.getElementById("response")
                 response.innerHTML=eval(storedpiece)
                 storedpiece=""
+                let eq = document.getElementById("equation")
+                eq.innerText=storedpiece
             }
         
         </script>
