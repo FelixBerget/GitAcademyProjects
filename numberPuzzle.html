@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number Puzzle</title>
+        <meta charset="UTF-8">
+        <style>
+            #app{
+                border: 2px solid black;
+                display: grid;
+                grid-template-columns: 100px 100px 100px;
+                grid-template-rows: 100px 100px 100px;
+            }
+            .part{
+                border: 2px solid black
+            }
+            #square0{
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script>
+
+            let app = document.getElementById("app")
+            let previousBlankValue=0
+            draw()
+            function draw(){
+                app.innerHTML+=`
+                <div class="part" id="square0" onclick="clickDiv(0)"></div>
+                <div class="part" id="square1" onclick="clickDiv(1)">1</div>
+                <div class="part" id="square2" onclick="clickDiv(2)">2</div>
+                <div class="part" id="square3" onclick="clickDiv(3)">3</div>
+                <div class="part" id="square4" onclick="clickDiv(4)">4</div>
+                <div class="part" id="square5" onclick="clickDiv(5)">5</div>
+                <div class="part" id="square6" onclick="clickDiv(6)">6</div>
+                <div class="part" id="square7" onclick="clickDiv(7)">7</div>
+                <div class="part" id="square8" onclick="clickDiv(8)">8</div>`
+            }
+            function clickDiv(t){
+                let divs = document.getElementsByClassName("part")
+                let blank = document.getElementById("square0")
+                let tObj = document.getElementById(`square${t}`)
+                console.log(tObj)
+                let blankValue = previousBlankValue
+                console.log("b "+ blankValue)
+                console.log("t "+ t)
+                console.log("tObj = " + tObj.id)
+                if(tObj==divs[blankValue+1] && (blankValue+1)%3!=0){
+                    let tempText = tObj.innerText
+                    let tempId = `square${t}`;
+                    tObj.id=blank.id;
+                    blank.id=tempId;
+                    blank.innerText=tempText
+                    tObj.innerText=""
+                    previousBlankValue=t
+                }
+                else if(tObj==divs[blankValue-1]){
+                    let tempText = tObj.innerText
+                    let tempId = `square${t}`;
+                    tObj.id=blank.id;
+                    blank.id=tempId;
+                    blank.innerText=tempText
+                    tObj.innerText=""
+                    previousBlankValue=t
+                }
+            }
+        </script>
+    </body>
+</html>
