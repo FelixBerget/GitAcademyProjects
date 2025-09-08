@@ -21,25 +21,29 @@
         <div id="app"></div>
         <script>
             let app = document.getElementById("app")
-
+            let firstTime;
             let randomNum = 0
             start()
             function start(){
-                randomNum= getRandomNumber(1,4)
+                firstTime = new Date().getTime()
+                randomNum = getRandomNumber(1,4)
                 app.innerHTML=`
                 <div class="part" id="1" onclick="clickDiv(this)" style="background-color:grey;"></div>
                 <div class="part" id="2" onclick="clickDiv(this)" style="background-color:grey;"></div>
                 <div class="part" id="3" onclick="clickDiv(this)" style="background-color:grey;"></div>
                 <div class="part" id="4" onclick="clickDiv(this)" style="background-color:grey;"></div>`
                 theObj = document.getElementById(`${randomNum}`)
-                console.log(randomNum)
                 theObj.style.backgroundColor="yellow"
             }
 
             function clickDiv(t){
-                console.log("haha")
                 if(t.id==randomNum){
+                    let newTime = new Date().getTime()
+                    console.log("f" + firstTime)
+                    console.log("n" + newTime)
                     start()
+                    console.log("result" + (newTime-firstTime)/1000)
+                    return (firstTime-newTime)/1000
                 }
             }
             function getRandomNumber(min, max) {
