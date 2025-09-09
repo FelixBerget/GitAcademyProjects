@@ -27,6 +27,9 @@
             console.log(frequency([0,9,1,3,3,4,6]))
             console.log("typetall" + typeNumber([0,9,1,3,3,4,6]))
             console.log(yatzyPair([1,6,6,3,3]))
+            console.log(straights([1,2,3,4,5]))
+            console.log(straights([2,3,4,5,6]))
+            console.log(straights([1,2,3,4,2]))
             function crypt(word){
                 returnWord = ""
                 for(i in word){
@@ -111,6 +114,56 @@
                     }
                 }
                 return pair
+            }
+            function straights(dices){
+
+                let smallstraight = [1,2,3,4,5]
+                let bigstraight = [2,3,4,5,6]
+                let oneTaken = false
+                let twotaken = false
+                let threetaken = false
+                let fourtaken = false
+                let fivetaken = false
+                let sixtaken = false
+                for(let i=0;i<dices.length;i++){
+                    if(dices[i]==6&&sixtaken==false){
+                        bigstraight.pop()
+                        sixtaken=true
+                    }
+                    if(dices[i]==5&&fivetaken==false){
+                        bigstraight.pop()
+                        smallstraight.pop()
+                        fivetaken=true
+                    }
+                    if(dices[i]==4&&fourtaken==false){
+                        bigstraight.pop()
+                        smallstraight.pop()
+                        fourtaken=true
+                    }
+                    if(dices[i]==3&&threetaken==false){
+                        bigstraight.pop()
+                        smallstraight.pop()
+                        threetaken=true
+                    }
+                    if(dices[i]==2&&twotaken==false){
+                        bigstraight.pop()
+                        smallstraight.pop()
+                        twotaken=true
+                    }
+                    if(dices[i]==1&&oneTaken==false){
+                        smallstraight.pop()
+                        oneTaken=true
+                    }
+                }
+                if(bigstraight.length==0){
+                    return "big straight"
+                }
+                else if(smallstraight.length==0){
+                    return "small straight"
+                }
+                else{
+                    return "nothing"
+                }
             }
         </script>
     </body>
