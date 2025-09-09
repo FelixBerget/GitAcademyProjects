@@ -26,6 +26,7 @@
             console.log(randomGen(alphabet,codetest))
             console.log(frequency([0,9,1,3,3,4,6]))
             console.log("typetall" + typeNumber([0,9,1,3,3,4,6]))
+            console.log(yatzyPair([1,6,6,3,3]))
             function crypt(word){
                 returnWord = ""
                 for(i in word){
@@ -98,6 +99,18 @@
                 return biggestNumber
 
 
+            }
+            function yatzyPair(dices){
+                let pair = [0,0]
+
+                for(i in dices){
+                    for(j in dices){
+                        if(i!=j && dices[i]==dices[j] && dices[i]>pair[1]){
+                            pair = [dices[i],dices[j]]
+                        }
+                    }
+                }
+                return pair
             }
         </script>
     </body>
