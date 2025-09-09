@@ -16,12 +16,14 @@
             let app = document.getElementById("app")
             let alphabet = "abcdefghijklmnopqrstuvwxyz"
             let codetest = "qwertyuiopasdfghjklzxcvbnm"
+            console.log(codetest.length)
 
 
             console.log(crypt("abc"))
             console.log(decrypt("qet"))
             console.log(fullcrypt("abc",alphabet,codetest))
             console.log(fullcrypt("qet",codetest,alphabet))
+            console.log(randomGen(alphabet,codetest))
             function crypt(word){
                 returnWord = ""
                 for(i in word){
@@ -41,6 +43,26 @@
 
             function fullcrypt(word, alph, cyph){
                 returnWord = ""
+                for(i in word){
+                    let wordIndex = alph.indexOf(word[i])
+                    returnWord += cyph[wordIndex]
+                }
+                return returnWord
+
+            }
+            function randomGen(alph, cyph){
+                returnWord = ""
+                word = ""
+                for(let i=0;i<=1000;i++){
+                    letter = Math.floor(Math.random() * (26 - 0));
+                    if(word.includes(alphabet[letter])){
+                    }
+                    else{
+                        word+=alphabet[letter]
+                        console.log("hmm")
+                    }
+                }
+                console.log(word.length)
                 for(i in word){
                     let wordIndex = alph.indexOf(word[i])
                     returnWord += cyph[wordIndex]
