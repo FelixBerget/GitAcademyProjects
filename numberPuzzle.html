@@ -61,7 +61,7 @@
                     tObj.innerText=""
                     previousBlankValue=t
                 }
-                else if(tObjMinus.id==`square${blankValue}`){
+                else if(tObjMinus.id==`square${blankValue}` && (blankValue-1)%3!=2){
                     console.log("behind")
                     let tempText = tObjMinus.innerText
                     let tempId = `square${t+1}`;
@@ -69,6 +69,26 @@
                     blank.id=tempId;
                     blank.innerText=tempText
                     tObjMinus.innerText=""
+                    previousBlankValue=t
+                }
+                else if(t==blankValue+3){
+                    console.log("far ahead")
+                    let tempText = tObj.innerText
+                    let tempId = `square${blankValue+3}`;
+                    tObj.id=blank.id;
+                    blank.id=tempId;
+                    blank.innerText=tempText
+                    tObj.innerText=""
+                    previousBlankValue=t
+                }
+                else if(t==blankValue-3){
+                    console.log("far ahead")
+                    let tempText = tObj.innerText
+                    let tempId = `square${blankValue+3}`;
+                    tObj.id=blank.id;
+                    blank.id=tempId;
+                    blank.innerText=tempText
+                    tObj.innerText=""
                     previousBlankValue=t
                 }
             }
