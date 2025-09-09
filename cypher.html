@@ -24,6 +24,7 @@
             console.log(fullcrypt("abc",alphabet,codetest))
             console.log(fullcrypt("qet",codetest,alphabet))
             console.log(randomGen(alphabet,codetest))
+            console.log(frequency([0,9,1,3,3,4,6]))
             function crypt(word){
                 returnWord = ""
                 for(i in word){
@@ -59,7 +60,6 @@
                     }
                     else{
                         word+=alphabet[letter]
-                        console.log("hmm")
                     }
                 }
                 console.log(word.length)
@@ -68,6 +68,18 @@
                     returnWord += cyph[wordIndex]
                 }
                 return returnWord
+
+            }
+
+            function frequency(numbers){
+                let freq = [0,0,0,0,0,0,0,0,0,0]
+
+                for(let i=0;i<numbers.length;i++){
+                    console.log(numbers[i])
+                    freq[numbers[i]]++
+                }
+                return freq
+
 
             }
         </script>
