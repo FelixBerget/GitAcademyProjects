@@ -37,29 +37,35 @@
             function makesong(){
                 let bpm = document.getElementById("bpm")
                 let instrumentation= document.getElementById("instrumentation")
-                let match = "ok"
+                let match = getMatch()
                 console.log(bpm.value)
-                if(instrumentation.value =="lo-fi" && bpm.value =="140bpm"){
-                    match = "bad"
-                }
-                
-                else if(instrumentation.value =="lo-fi" && bpm.value =="120bpm"){
-                    match = "bad"
-                }
-                
-                else if(instrumentation.value =="Metal" && bpm.value =="140bpm"){
-                    match = "good"
-                }
-                
-                else if(instrumentation.value =="folk" && bpm.value =="140bpm"){
-                    match = "bad"
-                }
-                else if (instrumentation.value =="lo-fi" && bpm.value=="100bpm"){
-                    match = "good"
-                }
                 app.innerHTML+=`
                 <div class="addedsongs">The song is ${bpm.value} and uses ${instrumentation.value} instrumentation the match is ${match}</div>`
 
+            }
+
+            function getMatch(){
+                if(instrumentation.value =="lo-fi" && bpm.value =="140bpm"){
+                    return "bad"
+                }
+                
+                else if(instrumentation.value =="lo-fi" && bpm.value =="120bpm"){
+                    return "bad"
+                }
+                
+                else if(instrumentation.value =="Metal" && bpm.value =="140bpm"){
+                    return "good"
+                }
+                
+                else if(instrumentation.value =="folk" && bpm.value =="140bpm"){
+                    return "bad"
+                }
+                else if (instrumentation.value =="lo-fi" && bpm.value=="100bpm"){
+                    return "good"
+                }
+                else{
+                    return "ok"
+                }
             }
         </script>
     </body>
