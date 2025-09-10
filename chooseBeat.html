@@ -3,6 +3,19 @@
     <head>
         <title>Make a beat</title>
         <meta charset="UTF-8">
+        <style>
+            #h{
+                font-size: 32px;
+                color: yellow;
+                background-color: darkblue;
+            }
+            .addedsongs{
+                background-color: blueviolet;
+                color: chartreuse;
+                font-size: 25px;
+                border: 3px solid chartreuse;
+            }
+        </style>
     </head>
     <body>
 
@@ -38,7 +51,6 @@
                 let bpm = document.getElementById("bpm")
                 let instrumentation= document.getElementById("instrumentation")
                 let match = getMatch()
-                console.log(bpm.value)
                 app.innerHTML+=`
                 <div class="addedsongs">The song is ${bpm.value} and uses ${instrumentation.value} instrumentation the match is ${match}</div>`
 
