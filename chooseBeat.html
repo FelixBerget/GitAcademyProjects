@@ -51,8 +51,7 @@
                 let bpm = document.getElementById("bpm")
                 let instrumentation= document.getElementById("instrumentation")
                 let match = getMatch()
-                app.innerHTML+=`
-                <div class="addedsongs">The song is ${bpm.value} and uses ${instrumentation.value} instrumentation the match is ${match}</div>`
+                songText(bpm,instrumentation,match)
 
             }
 
@@ -78,6 +77,10 @@
                 else{
                     return "ok"
                 }
+            }
+            function songText(bpm,instrumentation,match){
+                app.innerHTML+=`
+                <div class="addedsongs">The song is ${bpm.value} and uses ${instrumentation.value} instrumentation the match is ${match}</div>`
             }
         </script>
     </body>
