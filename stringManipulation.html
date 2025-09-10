@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Just for testing string manipulation</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+
+        <div id="app"></div>
+
+        <script>
+
+            let testString = "today everyone stays tricked"
+
+            console.log(removeSpacesAndAddCaps(testString))
+
+            function removeSpacesAndAddCaps(str){
+                let ar = []
+                ar = str.split(" ")
+
+                for(i in ar){
+                    ar[i]=ar[i][0].toUpperCase()
+                }
+                return ar
+            }
+        </script>
+    </body>
+</html>
