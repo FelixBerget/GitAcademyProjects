@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Make a beat</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+
+            start()
+            function start(){
+                app.innerHTML=`
+                <div id="h">Here you can choose the characteristics of your beat</div>
+                <div>BPM</div>
+                <select id="bpm" name="bpm">
+                    <option value="100bpm">100bpm</option>
+                    <option value="120bpm">120bpm</option>
+                    <option value="140bpm">140bpm</option>
+                </select>
+                <br/>
+                <div>Instrumentation</div>
+                <select id="instrumentation" name="instrumentation">
+                    <option value="lo-fi">Lo-Fi</option>
+                    <option value="metal">Metal</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="folk">Folk</option>
+                </select>  
+                <br/>
+                <button id="b" onclick="makesong()">Make a song</button>
+                `
+            }
+
+            function makesong(){
+                let bpm = document.getElementById("bpm")
+                let instrumentation= document.getElementById("instrumentation")
+                app.innerHTML+=`
+                <div class="addedsongs">The song is ${bpm.value} and uses ${instrumentation.value} instrumentation</div>`
+
+            }
+        </script>
+    </body>
+</html>
