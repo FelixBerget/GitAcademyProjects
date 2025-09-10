@@ -14,6 +14,7 @@
             let testString = "today everyone stays tricked"
 
             console.log(removeSpacesAndAddCaps(testString))
+            replaceLetter("o","e")
 
             function removeSpacesAndAddCaps(str){
                 let ar = []
@@ -23,6 +24,28 @@
                     ar[i]=ar[i][0].toUpperCase()
                 }
                 return ar
+            }
+            
+            function replaceLetter(letter,replacer){
+                for(let i=0;i<testString.length;i++){
+                    if(testString[i]==letter){
+                        let theArr = testString.split(letter)
+                        console.log(replaceIndivid(theArr,replacer))
+                    }
+                }
+            }
+            function replaceIndivid(arr, replacer){
+                console.log(arr)
+                let resultString = ""
+                for(i in arr){
+                    let newWord = ""
+                    for(let j=1;j<arr[i].length;j++){
+                        newWord+=arr[i][j]
+                    }
+                    console.log(resultString)
+                    resultString = resultString + newWord + replacer + " "
+                }
+                return resultString
             }
         </script>
     </body>
