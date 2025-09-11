@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How many As are there in the text</title>
+        <meta charset="UTF-8">
+
+        <style>
+            #h{
+                font-size: 38px;
+                text-align: center;
+            }
+            .usrpost{
+                font-size: 20px;
+                text-align: center;
+                border: 1.5px solid black;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+            let postcounter = 0
+            startApp()
+            function startApp(){
+                app.innerHTML=`
+                <div id="h">Forum</div>
+                <input class="center" type="text" id="write"></input>
+                <br/>
+                <button class="center" onclick="post()">Post</button>`
+            }
+            function post(){
+                let write = document.getElementById("write")
+                postcounter++
+                app.innerHTML+=`
+                <div class="usrpost">Guest User</div>
+                <div class="usrpost" id="userPost${postcounter}">${write.value}</div>
+                <br/>`
+            }
+        </script>
+    </body>
+</html>
