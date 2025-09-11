@@ -38,12 +38,8 @@
                 console.log(arr)
                 let resultString = ""
                 for(i in arr){
-                    let newWord = ""
-                    for(let j=1;j<arr[i].length;j++){
-                        newWord+=arr[i][j]
-                    }
-                    console.log(resultString)
-                    resultString = resultString + newWord + replacer + " "
+                    let newWord = replacer+arr[i]
+                    resultString = resultString + newWord
                 }
                 return resultString
             }
