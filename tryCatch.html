@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Try Catch</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        
+        <div id="app"></div>
+
+        <script>
+            let app = document.getElementById("app")
+
+            try{
+                makedinner()
+            }
+            catch(error){
+                console.log(error)
+            }
+
+            try{
+                console.log(rap())
+            }
+            catch(error){
+                console.log(error)
+            }
+            finally{
+                console.log("interesting")
+            }
+
+            function rap(){
+                return "i am on top, never going to stop"
+            }
+            try{
+                console.log(fuelcar())
+            }
+            catch(error){
+                console.log(error)
+            }
+            finally{
+                console.log("interesting")
+            }
+
+            function rap(){
+                return "i am on top, never going to stop"
+            }
+            
+        </script>
+    </body>
+</html>
