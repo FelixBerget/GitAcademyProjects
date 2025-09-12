@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number Puzzle</title>
+        <meta charset="UTF-8">
+        <style>
+            #app{
+                border: 2px solid black;
+                display: grid;
+                grid-template-columns: 100px 100px 100px;
+                grid-template-rows: 100px 100px 100px;
+            }
+            .part{
+                border: 2px solid black
+            }
+            #square11{
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script>
+
+            let app = document.getElementById("app")
+            let previousBlankValue=0
+            draw()
+            function draw(){
+                app.innerHTML+=`
+                <div class="part" id="square11" onclick="clickDiv(1,1)"></div>
+                <div class="part" id="square12" onclick="clickDiv(1,2)">1</div>
+                <div class="part" id="square13" onclick="clickDiv(1,3)">2</div>
+                <div class="part" id="square21" onclick="clickDiv(2,1)">3</div>
+                <div class="part" id="square22" onclick="clickDiv(2,2)">4</div>
+                <div class="part" id="square23" onclick="clickDiv(2,3)">5</div>
+                <div class="part" id="square31" onclick="clickDiv(3,1)">6</div>
+                <div class="part" id="square32" onclick="clickDiv(3,2)">7</div>
+                <div class="part" id="square33" onclick="clickDiv(3,3)">8</div>`
+            }
+
+            let greyPos = [1,1]
+            let classList = document.getElementsByClassName("part")
+
+
+            function clickDiv(firstNum, secondNum){
+                let firstPos = firstNum*secondNum
+                let secondPos = greyPos[0] * greyPos[1]
+                if(firstNum == greyPos[0] && secondNum == greyPos[1]+1 || firstNum == greyPos[0]+1 && secondNum == greyPos[1] || firstNum == greyPos[0]-1 && secondNum == greyPos[1] || firstNum == greyPos[0] && secondNum == greyPos[1]-1){
+                    let sqr1 = document.getElementById(`square${firstNum}${secondNum}`)
+                    let greySqr = document.getElementById(`square${greyPos[0]}${greyPos[1]}`)
+
+                    let tempString = sqr1.innerText
+
+                    sqr1.style.backgroundColor="gray"
+                    sqr1.innerText=""
+                    greySqr.style.backgroundColor="white"
+                    greySqr.innerText=tempString
+                    greyPos = [firstNum,secondNum]
+                    console.log(greyPos)
+                    if(firstNum==3 && secondNum==3){
+                        app.innerHTML+=`
+                        <div>You Won!</div>`
+                    }
+                }
+
+            }
+
+
+        </script>
+    </body>
+</html>
