@@ -32,6 +32,7 @@
                 <div id="postText">Post to forum</div>
                 <br/>
                 <input class="center" type="text" id="write"></input>
+                <button class="center" onclick="post()">Post</button>
                 <br/>
                 <div id="user">Username</div>
                 <br/>
@@ -40,8 +41,7 @@
                 <br/>
                 <input class="center" type="text" id="password"></input>
                 <button class="center" onclick="login()">Log In</button>
-                <button class="center" onclick="logout()">Log Out</div>
-                <button class="center" onclick="post()">Post</button>`
+                <button class="center" onclick="logout()">Log Out</div>`
             }
             function login(){
                 let usr = document.getElementById("usr")
@@ -58,6 +58,9 @@
             }
             function post(){
                 let write = document.getElementById("write")
+                if(write.value==""){
+                    return
+                }
                 postcounter++
                 app.innerHTML+=`
                 <div class="usrpost">${user}</div>
