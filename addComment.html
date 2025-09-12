@@ -21,21 +21,39 @@
         <div id="app"></div>
 
         <script>
+            let user = "Guest User"
+            let password = "123"
             let app = document.getElementById("app")
             let postcounter = 0
             startApp()
             function startApp(){
                 app.innerHTML=`
                 <div id="h">Forum</div>
+                <div id="postText">Post to forum</div>
                 <input class="center" type="text" id="write"></input>
                 <br/>
+                <div id="user">Username</div>
+                <br/>
+                <input class="center" type="text" id="usr"></input>
+                <div id="passText">Password</div>
+                <br/>
+                <input class="center" type="text" id="password"></input>
+                <button class="center" onclick="login()">Log In</button>
                 <button class="center" onclick="post()">Post</button>`
+            }
+            function login(){
+                let usr = document.getElementById("usr")
+                let pass = document.getElementById("password")
+
+                if(pass.value = password){
+                    user = usr.value
+                }
             }
             function post(){
                 let write = document.getElementById("write")
                 postcounter++
                 app.innerHTML+=`
-                <div class="usrpost">Guest User</div>
+                <div class="usrpost">${user}</div>
                 <div class="usrpost" id="userPost${postcounter}">${write.value}</div>
                 <br/>`
             }
