@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>How many As are there in the text</title>
+        <title>Forum Example</title>
         <meta charset="UTF-8">
 
         <style>
@@ -39,6 +39,7 @@
                 <br/>
                 <input class="center" type="text" id="password"></input>
                 <button class="center" onclick="login()">Log In</button>
+                <button class="center" onclick="logout()">Log Out</div>
                 <button class="center" onclick="post()">Post</button>`
             }
             function login(){
@@ -48,6 +49,11 @@
                 if(pass.value = password){
                     user = usr.value
                 }
+                usr.value=""
+                pass.value=""
+            }
+            function logout(){
+                user="Guest User"
             }
             function post(){
                 let write = document.getElementById("write")
