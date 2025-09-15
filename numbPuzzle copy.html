@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number Puzzle</title>
+        <meta charset="UTF-8">
+        <style>
+            #app{
+                border: 2px solid black;
+                display: grid;
+                grid-template-columns: 100px 100px 100px;
+                grid-template-rows: 100px 100px 100px;
+            }
+            .part{
+                border: 2px solid black
+            }
+            #null{
+                background-color: gray;
+                color: gray;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script>
+
+            let app = document.getElementById("app")
+            let previousBlankValue=0
+            let boardList = [null,1,2,3,4,5,6,7,8]
+
+            draw()
+            function draw(){
+                for(i in boardList){
+                    app.innerHTML+=`<div id="${boardList[i]}" class="part" onclick="clickDiv(${boardList[i]})">${boardList[i]}</div>`
+                }
+            }
+
+
+            function clickDiv(item){
+                let blank = parseInt(boardList.indexOf(null))
+                let itemPlacement = boardList.indexOf(parseInt(item))
+                console.log(blank+1%3==0)
+                if(blank+1==itemPlacement && blank+1%3!=0 || blank-1==itemPlacement && blank+1%3!=1){
+                    let temp = boardList[itemPlacement]
+                    boardList[itemPlacement]= boardList[blank]
+                    console.log(boardList[itemPlacement])
+                    boardList[blank] = temp
+                    console.log(boardList[blank])
+                    console.log("n1")
+                }
+                else if(blank+3==itemPlacement && blank+1%3!=0 || blank-3==itemPlacement && blank+1%3!=1 ){
+                    let temp = boardList[itemPlacement]
+                    boardList[itemPlacement]= boardList[blank]
+                    console.log(boardList[itemPlacement])
+                    boardList[blank] = temp
+                    console.log(boardList[blank])
+                    console.log("nr2")
+                }
+                console.log("blank" + blank + "item" + itemPlacement)
+                console.log("board list test " + boardList)
+                app.innerHTML=""
+                draw()
+                if(boardList[boardList.length-1]==null){
+                    app.innerHTML+="YOU WON!"
+                }
+
+            }
+
+
+        </script>
+    </body>
+</html>
