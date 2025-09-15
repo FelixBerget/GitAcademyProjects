@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid Creator</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <div id="app"></div>
+        <script>
+
+            let app = document.getElementById("app")
+
+            createGrid(3, 2, 
+                createDiv('Kol 1 rad 1')
+                + createDiv('Kol 2 rad 1')
+                + createDiv('Kol 3 rad 1')
+                + createDiv('Kol 1 rad 2')
+                + createDiv('Kol 2 rad 2')
+                + createDiv('Kol 3 rad 2')
+            )
+
+            function createGrid(columnCount,rowCount,innerHtml){
+                app.style.display="grid"
+                app.style.gridTemplateColumns=`repeat(${columnCount},auto)`
+                app.style.gridTemplateRows=`repeat(${rowCount},auto)`
+                app.innerHTML=innerHtml
+            }
+
+            function createDiv(str){
+                return `<div>${str}</div>`
+            }
+        </script>
+    </body>
+</html>
