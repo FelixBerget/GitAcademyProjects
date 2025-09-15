@@ -43,3 +43,19 @@ function emailFunc2(txt){
     }
     return isEmail
 }
+
+
+let tx = "hello,guys";
+function spiltText(){
+    let endtext = ""
+    splitTx = tx.split(",")
+    for(let i=0;i<splitTx.length;i++){
+        if(i==0){
+            endtext+=splitTx[i]
+        }
+        else{
+            endtext+=" "+ splitTx[i]
+        }
+        return endtext
+    }
+}

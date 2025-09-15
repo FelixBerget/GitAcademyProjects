@@ -11,6 +11,7 @@
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
     <script src="lib.js"></script>
+
     <script>
         QUnit.test("fix - 'joe'", function (assert) {
             const actual = fixText('joe');
@@ -43,6 +44,11 @@
         QUnit.test("fix - 'felix@email.com'",function(assert){
             const actual = emailFunc2('felix@email.com');
             const expected = true;
+            assert.equal(actual,expected)
+        })
+        QUnit.test("fix - 'spaghetti'",function(assert){
+            const actual = spiltText();
+            const expected = "hello guys"
             assert.equal(actual,expected)
         })
     </script>
