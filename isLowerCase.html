@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Is in Case</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+
+        <script>
+            let str = "a"
+            let txt = "A"
+
+            console.log(isInCase(str))
+            console.log(isInCase(txt))
+            function isInCase(s){
+                if(s == s.toLowerCase()){
+                    return "is lowercase"
+                }
+                else if(s == s.toUpperCase()){
+                    return "is uppercase"
+                }
+            }
+        </script>
+    </body>
+</html>
