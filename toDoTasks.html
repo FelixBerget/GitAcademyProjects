@@ -9,9 +9,9 @@
         <div id="app"></div>
         <script>
 
-            let task1 = {text:"Clean room",doneDate:"2025:August:04 Central European Timezone 19.00",responsible:"John Doe"}
-            let task2 = {text:"Build House",doneDate:"2025:February:23 Central European Timezone 21.00",responsible:"John Doe"}
-            let task3 = {text:"Make dinner",doneDate:"2015:February:10 Central European Timezone 18.30",responsible:"Bob"}
+            let task1 = {text:"Clean room",doneDate:new Date(2025,8,21,16,50),responsible:"John Doe"}
+            let task2 = {text:"Build House",doneDate:new Date(2012,7,8,13,50),responsible:"John Doe"}
+            let task3 = {text:"Make dinner",doneDate:new Date(2010,2,2,16,10),responsible:"Bob"}
             let task4 = {text:"Produce movie",doneDate:null,responsible:"Amanda"}
 
             let l = []
@@ -37,14 +37,15 @@
                 if(!isNotEveryone){
                     for(let i=underLimit;i<l.length;i++){
                         console.log("i = " + i)
-                        if(l[i].doneDate==null) l[i].doneDate="not done"
+                        dt = l[i].doneDate
+                        if(l[i].doneDate==null) dt="not done"
                         if(i == l.length+1){
                             app.innerHTML+=`
                             </ol>`
                         }
                         else if(i<=limit){
                             app.innerHTML+=`
-                            <li id="${l[i]}">${l[i].text} ${l[i].doneDate} by ${l[i].responsible} <button onclick="doPart(${i})">Click here to do</button><button onclick="removePart(${i})">Click to remove</button></li>`
+                            <li id="${l[i]}">${l[i].text} ${dt} by ${l[i].responsible} <button onclick="doPart(${i})">Click here to do</button><button onclick="removePart(${i})">Click to remove</button></li>`
                         }
                         else{
                             app.innerHTML+=`<div>Link to go further</div>
@@ -80,7 +81,8 @@
                 app.innerHTML+=optionString 
             }
             function doPart(i){
-                l[i].doneDate="2025:September:03 Central European Timezone 15.00"
+                let d = new Date
+                l[i].doneDate= d
                 start()
             }
             function removePart(i){
@@ -91,8 +93,17 @@
             function addObject(){
                 let tak = document.getElementById("tak")
                 let dat = document.getElementById("dat")
+                let arrayDat = dat.value.split(",")
                 let nam = document.getElementById("nam")
-                let tsk = {text:tak.value,doneDate:dat.value,responsible:nam.value}
+                console.log("dat value" + dat.value)
+                let inputDat
+                if(dat.value==""){
+                    inputDat=null
+                }
+                else{
+                    inputDat =  new Date(arrayDat[0],arrayDat[1],arrayDat[2],arrayDat[3],arrayDat[4])
+                }
+                let tsk = {text:tak.value,doneDate:inputDat,responsible:nam.value}
                 console.log(tsk)
                 l.push(tsk)
                 start()
@@ -131,6 +142,24 @@
                 if(underLimit!=0){
                     underLimit-=9
                     limit-=9
+                }
+                start()
+            }
+            function sortlist(){
+                for(i in l){
+                    for(j in l){
+                        if(l[j].doneDate>l[i].doneDate){
+                            temp = l[i]
+                            l[i] = l[j]
+                            l[j] = temp
+                        }
+                        if(l[j].doneDate==null){
+                            temp = l[0]
+                            l[0] = l[j]
+                            l[j] = temp  
+                        }
+                        
+                    }
                 }
                 start()
             }
