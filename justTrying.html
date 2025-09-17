@@ -14,12 +14,17 @@
         <script>
             let app = document.getElementById("app")
 
-            start()
-            function start(){
-                app.innerHTML=createHTML()
+            start(2)
+            function start(num){
+                app.innerHTML=createHTML(num)
             }
-            function createHTML(){
-                return "<div>I prefer my spaghetti with parmegiano</div>"
+            function createHTML(num){
+                if(num==1){
+                    return "<div>I prefer my spaghetti with parmegiano</div>"
+                }
+                if(num==2){
+                    return `<button onclick="start(1)">Click to go to other screen</button>`
+                }
             }
         </script>
     </body>
