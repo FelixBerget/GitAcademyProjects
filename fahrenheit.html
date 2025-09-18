@@ -10,11 +10,25 @@
         <script>
             console.log(convertToCelcius(75))
             console.log(convertToFahrenheit(22))
+            console.log(convertTemp(75,"fahrenheit"))
+            console.log(convertTemp(22,"celcius"))
+            console.log(convertTemp(1,"no"))
             function convertToFahrenheit(celcius){
                 return celcius * 9/5 + 32
             }
             function convertToCelcius(fahreneheit){
                 return (fahreneheit -32) * 5/9   
+            }
+            function convertTemp(temp,type){
+                if(type=="fahrenheit"){
+                    return (temp -32) * 5/9    
+                }
+                else if(type=="celcius"){
+                    return temp * 9/5 + 32
+                }
+                else{
+                    return "wrong format"
+                }
             }
         </script>
     </body>
