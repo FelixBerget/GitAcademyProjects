@@ -13,6 +13,8 @@
             console.log(convertTemp(75,"fahrenheit"))
             console.log(convertTemp(22,"celcius"))
             console.log(convertTemp(1,"no"))
+            let app = document.getElementById("app")
+            app.innerHTML=createDiv('Hei','yellow','black')
             function convertToFahrenheit(celcius){
                 return celcius * 9/5 + 32
             }
@@ -29,6 +31,9 @@
                 else{
                     return "wrong format"
                 }
+            }
+            function createDiv(text,foregroundColor,backgroundColor){
+                return `<div style="background-color: ${backgroundColor};color: ${foregroundColor}">${text}</div>`
             }
         </script>
     </body>
