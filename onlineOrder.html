@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Make a Online order</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+
+        <script>
+            let app = document.getElementById("app")
+            startApp(item)
+            let item = {name:'Tastatur',price:399,count:2}
+            function startApp(product){
+                let fullprice = product.price*product.count
+                app.innerHTML=product.count + " stk. " + product.name + " a " + product.price + "kr = " + fullprice + "kr"
+            }
+        </script>
+    </body>
+</html>
