@@ -11,8 +11,8 @@
 
         <script>
             let app = document.getElementById("app")
-            startApp(item)
             let item = {name:'Tastatur',price:399,count:2}
+            startApp(item)
             function startApp(product){
                 let fullprice = product.price*product.count
                 app.innerHTML=product.count + " stk. " + product.name + " a " + product.price + "kr = " + fullprice + "kr"
