@@ -12,9 +12,10 @@
             app.innerHTML=`
             <h1>Check how many As there are in this text</h1>
             <input type="text" id="inp"></input>
-            <button id="b" onclick="check()">Click for check</button>`
+            <button id="b" onclick="checkA()">Click for check</button>
+            <button id="bu" onclick="checkUppercase()">Click for check</button>`
 
-            function check(){
+            function checkA(){
                 let inp = document.getElementById("inp")
                 let howmanyA = 0
                 let inpString = inp.value
@@ -25,6 +26,31 @@
                 }
                 app.innerHTML+=`
                 <div>There are ${howmanyA} A in this text</div>`
+            }
+
+            function checkUppercase(){
+                let inp = document.getElementById("inp")
+                let howmanyUp = 0
+                let howmanyLow = 0
+                let inpString = inp.value
+                for(let i=0;i<inpString.length;i++){
+                    if(isUpperCase(inpString[i])){
+                        howmanyUp++
+                    }
+                    else{
+                        howmanyLow++
+                    }
+                }
+                app.innerHTML+=`
+                <div>There are ${howmanyLow} Lowercase letters and ${howmanyUp} Uppercase letters in this text</div>`
+            }
+            function isUpperCase(char){
+                if(char.toUpperCase()!=char.toLowerCase()){
+                    return true
+                }
+                else{
+                    return false
+                }
             }
         </script>
     </body>
