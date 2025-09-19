@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trainig CSS</title>
+        <meta charset="UTF-8">
+        <style>
+
+            #themain{
+                display:grid;
+                height: 100px;
+                width: 200px;
+                grid-template-areas: 'letter up'
+                                     'letter down';
+            }
+            #down{
+                grid-area: down;
+                background-color: grey;
+                border: 5px solid white;
+                text-align: center;
+                font-size: 30px;
+            }
+            #up{
+                grid-area: up;
+                background-color: black;
+                color:aliceblue;
+                border: 5px solid white;
+                text-align: center;
+                font-size: 30px;
+            }
+            #letter{
+                grid-area: letter;
+                text-align:center;  
+                font-size: 80px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="themain">
+            <div id="letter">5</div>
+            <div id="up">W</div>
+            <div id="down">S</div>
+        </div>
+    </body>
+</html>
