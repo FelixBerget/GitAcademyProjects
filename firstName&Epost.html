@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Make email and name</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <div id="app"></div>
+        <script>
+
+
+            let app = document.getElementById("app")
+            let name = ""
+            let email = ""
+            makeForm()
+            start()
+            function start(){
+                app.innerHTML=html
+            }
+            function makeForm(){
+                html =  `
+                <input type="text" id="name" value=${name}></input>
+                <input type="text" id="email" value=${email}></input>
+                <button onclick="showText()">Submit button, first is first name and second is email</button>`
+                start()
+            }
+            function showText(){
+                name = document.getElementById("name").value
+                email = document.getElementById("email").value
+                html = `
+                <div id="name">${name}</div>
+                <div id="email">${email}</div>
+                <button onclick="makeForm()">Return</button>`
+                start()
+            }
+        </script>
+    </body>
+</html>
