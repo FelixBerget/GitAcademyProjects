@@ -34,22 +34,30 @@
                 let howmanyLow = 0
                 let inpString = inp.value
                 for(let i=0;i<inpString.length;i++){
-                    if(isUpperCase(inpString[i])){
+                    if(isUpperCase(inpString[i])==1){
                         howmanyUp++
                     }
-                    else{
+                    else if(isUpperCase(inpString[i])==2){
                         howmanyLow++
+                    }
+                    else{
+
                     }
                 }
                 app.innerHTML+=`
                 <div>There are ${howmanyLow} Lowercase letters and ${howmanyUp} Uppercase letters in this text</div>`
             }
             function isUpperCase(char){
-                if(char.toUpperCase()!=char.toLowerCase()){
-                    return true
+                let up = char.toUpperCase()
+                let low = char.toLowerCase()
+                if(up!=low && up == char){
+                    return 1
+                }
+                else if(up!=low){
+                    return 2
                 }
                 else{
-                    return false
+                    return 3
                 }
             }
         </script>
