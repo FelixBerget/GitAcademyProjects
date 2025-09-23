@@ -250,6 +250,25 @@
             }
             writeLineBreak()
             
+
+            firstFigure()
+            function firstFigure(){
+                let space = 0
+                for(let i=0;i<4;i++){
+                    for(let j=0;j<space/2;j++){
+                        writeSpace()
+                    }
+                    for(let j=0;j<8-space;j++){
+                        writeHash()
+                    }
+                    for(let j=0;j<space/2;j++){
+                        writeSpace()
+                    }
+                space+=2
+                writeLineBreak()
+                }
+
+            }
             function writeHash() {
                 document.getElementById('output').innerText += '#';
             }
